@@ -1,0 +1,74 @@
+@use "global" as *;
+
+.legal-document__inner.inner {
+  max-width: rem(600);
+  width: 100%;
+  margin: auto;
+  color: $font;
+  line-height: 2;
+  @include mq("md") {
+    max-width: rem(848);
+  }
+}
+
+.legal-document__title {
+  color: $font;
+  font-size: rem(24);
+  font-weight: $normal;
+  line-height: 1;
+  @include mq("md") {
+    font-size: rem(32);
+  }
+}
+
+.legal-document p {
+  margin-top: rem(32);
+  line-height: 2;
+}
+
+.legal-document p:nth-of-type(1) {
+  margin-top: rem(47);
+}
+
+.legal-document ol {
+  margin-left: rem(23);
+  list-style-type: decimal;
+  line-height: 2;
+  margin-top: rem(32);
+  @include mq("md") {
+    margin-left: rem(22);
+  }
+}
+
+.legal-document ol:nth-of-type(1) {
+  margin-top: rem(32);
+}
+
+.legal-document__text:nth-of-type(3) {
+  margin-top: rem(32);
+}
+
+.legal-document p:nth-of-type(2) {
+  margin-top: rem(31);
+  @include mq("md") {
+    margin-top: rem(32);
+  }
+}
+
+.legal-document ul {
+  line-height: 2;
+  text-indent: 0.8em;
+  margin-top: rem(32);
+}
+
+.legal-document ul li::before {
+  background-color: $font;
+  border-radius: 100%;
+  content: "";
+  display: inline-block;
+  height: 0.25rem;
+  left: -0.39375rem;
+  position: relative;
+  top: -0.3125rem;
+  width: 0.25rem;
+}

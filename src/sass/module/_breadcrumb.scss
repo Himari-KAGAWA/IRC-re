@@ -1,0 +1,62 @@
+@use "global" as *;
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb__arrow {
+  width: rem(6);
+  height: rem(6);
+  border: rem(1) solid;
+  border-color: $font $font transparent transparent;
+  transform: rotate(45deg);
+  margin-left: rem(6.4);
+  margin-top: rem(3);
+}
+
+.breadcrumb__link {
+  color: $font;
+  font-size: rem(14);
+  line-height: 1;
+  margin-left: rem(8);
+}
+
+.breadcrumb__item a {
+  color: $font;
+  font-size: rem(14);
+  line-height: 1;
+  margin-left: rem(-1);
+}
+
+.breadcrumb__item .prev {
+  color: $font;
+  margin-left: rem(8);
+}
+
+.breadcrumb__item [aria-current="location"] {
+  margin-left: rem(8);
+  color: $font;
+  font-size: rem(14);
+  line-height: 1;
+}
+
+.breadcrumb__item--404 a {
+  color: $base;
+}
+
+.breadcrumb__arrow--404 {
+  border-color: $base $base transparent transparent;
+}
+
+.breadcrumb__item--404 [aria-current="location"] {
+  color: $base;
+}
+
+.breadcrumb--404 {
+  background-color: $font;
+  padding-top: rem(85);
+  @include mq('md') {
+  padding-top: rem(95);
+  }
+}

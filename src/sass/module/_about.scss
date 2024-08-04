@@ -1,0 +1,120 @@
+@use "global" as *;
+
+.about {
+  position: relative;
+}
+
+.about__header .section-header__jatitle {
+  @include mq("md") {
+    margin-top: rem(1.92);
+  }
+}
+
+.about__inner {
+  max-width: rem(600);
+  width: 100%;
+  margin: auto;
+  @include mq("md") {
+    max-width: rem(1080);
+  }
+}
+
+.about__img-wrapper {
+  position: relative;
+  margin-top: rem(50);
+  @include mq("md") {
+    margin-top: rem(120);
+  }
+}
+
+.about__img-left {
+  display: block;
+  width: 37.101449275362318841%;
+  position: absolute;
+  top: rem(-26);
+  left: rem(0);
+  z-index: 1;
+  @include mq("md") {
+    width: 37.038%;
+    top: rem(-80);
+  }
+}
+
+.about__img-right {
+  width: 81.5%;
+  margin-left: auto;
+  @include mq("md") {
+    width: 81.481481481481481481%;
+  }
+}
+
+.about__contents {
+  width: 100%;
+  @include mq("md") {
+    position: absolute;
+    top: rem(306);
+    left: calc(50% + rem(68));
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    max-width: rem(880);
+    padding-right: rem(20);
+    box-sizing: content-box;
+    z-index: 2;
+  }
+}
+
+.about__lead {
+  font-family: $english-family;
+  font-weight: $regular;
+  font-size: rem(38);
+  color: $main;
+  line-height: 1;
+  margin-top: rem(40.8);
+  @include mq("md") {
+    margin-top: rem(0);
+    flex: 1 0 47.619047619047619048%;
+    font-size: rem(72);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    line-height: 1.25;
+    color: $base;
+  }
+}
+
+.about__copy {
+  @include mq("md") {
+    margin-left: rem(38.4);
+  }
+}
+
+.about__text {
+  color: $font;
+  margin-top: rem(16);
+  @include mq("md") {
+    margin-top: rem(0);
+    flex: 1 0 47.619047619047619048%;
+    color: $base;
+  }
+}
+
+.about__link {
+  text-align: center;
+  margin-top: rem(52);
+  @include mq("md") {
+    margin-top: rem(52);
+  }
+}
+
+.about__img-icon {
+  position: absolute;
+  right: calc(50% - min(48%, rem(640)));
+  bottom: rem(-90);
+  width: 100%;
+  max-width: rem(170);
+  aspect-ratio: 339 / 288;
+}
+
+.about__img-icon img {
+  width: 100%;
+  height: auto;
+}

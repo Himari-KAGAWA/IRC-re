@@ -1,0 +1,25 @@
+@use 'global' as *;
+
+
+.arrow-submit::before {
+  content: '';
+  position: absolute;
+  top: calc(50% - rem(6));
+  right: rem(50);
+  transform: rotate(42deg);
+  width: rem(10);
+  height: rem(1);
+  background-color: #cdcdcd;
+  transition: background-color 1s;
+}
+
+.arrow-submit::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - rem(3));
+  right: rem(50);
+  width: rem(40);
+  height: rem(1);
+  background-color: #cdcdcd;
+  transition: background-color 1s;
+}

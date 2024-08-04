@@ -1,0 +1,58 @@
+@use "global" as *;
+
+.not-found {
+background-color: $font;
+}
+
+.not-found__bg::before {
+  background: url(../images/common/horse404.png) no-repeat;
+  background-size: contain;
+  content: "";
+  width: rem(329);
+  height: rem(294);
+  position: absolute;
+  top: rem(105);
+  left: 6.4%;
+  @include mq("md") {
+    width: rem(665);
+    height: rem(594);
+    top: rem(142);
+    left: 13.5%;
+  }
+}
+
+.not-found__inner {
+  text-align: center;
+  position: relative;
+}
+
+.not-found__message {
+  font-size: rem(80);
+  padding-top: rem(60);
+  color: $base;
+  font-family: $english-family_2nd;
+  font-weight: $regular;
+  line-height: 1;
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
+  @include mq("md") {
+    padding-top: rem(132);
+    font-size: rem(160);
+  }
+}
+
+.not-found__text {
+  margin-top: rem(2);
+  color: $base;
+  line-height: 1.5;
+  @include mq("md") {
+    margin-top: rem(40);
+  }
+}
+
+.not-found__link {
+  margin-top: rem(42);
+  @include mq("md") {
+    margin-top: rem(82);
+  }
+}

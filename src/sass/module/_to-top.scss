@@ -1,0 +1,34 @@
+@use "global" as *;
+
+.to-top {
+  display: none;
+  position: fixed;
+  right: rem(14);
+  bottom: rem(14);
+  z-index: 6666;
+  @include mq("md") {
+    right: rem(18);
+    bottom: rem(15);
+  }
+}
+
+.to-top__link {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.6);
+  @include mq("md") {
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  }
+}
+
+.to-top--page {
+  right: rem(14);
+  bottom: rem(13);
+  @include mq("md") {
+    right: rem(18);
+    bottom: rem(16);
+  }
+}
+
+.is-show {
+  display: inline-block;
+}

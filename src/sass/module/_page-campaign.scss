@@ -1,0 +1,51 @@
+@use "global" as *;
+
+.page-campaign {
+}
+
+.page-campaign__card-items {
+  margin: rem(40) auto 0;
+  width: 81.159420289855072464%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(40);
+  @include mq("md") {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: rem(80) rem(40);
+  }
+}
+
+.page-campaign__card-item:hover .card-01__img {
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.page-campaign .card-01__header--page {
+  padding-bottom: rem(7);
+  @include mq("md") {
+    padding-bottom: rem(8.5);
+  }
+}
+
+.page-campaign .card-01__content--page {
+  margin-top: rem(10);
+  @include mq("md") {
+    margin-top: rem(24);
+  }
+}
+
+.page-campaign .card-01__price--page {
+  margin-right: rem(10);
+  @include mq("md") {
+    margin-right: rem(34.24);
+  }
+}
+
+.page-campaign .card-01__body--page {
+  padding: rem(16) rem(16) rem(21.5);
+  @include mq("md") {
+    padding: rem(24) rem(24) rem(44.8);
+  }
+}

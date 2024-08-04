@@ -1,0 +1,214 @@
+@use 'global' as *;
+
+.contact {
+  position: relative;
+}
+
+.contact__inner {
+  max-width: rem(600);
+  width: 100%;
+  margin: auto;
+  @include mq('md') {
+    max-width: rem(1080);
+  }
+}
+
+.contact__wrapper {
+  width: 100%;
+  @include mq('md') {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    padding: rem(79) 10.3037% rem(75.08) rem(50);
+    position: relative;
+  }
+}
+
+.contact__wrapper::before {
+  @include mq('md') {
+    content: '';
+    position: absolute;
+    left: calc(50% + rem(31));
+    top: 20%;
+    border-left: 1px solid $font; /* 縦線のスタイルを設定 */
+    height: calc(100% - rem(163.2)); /* 高さを親要素と同じに設定 */
+  }
+}
+
+.contact__logo {
+  width: 100%;
+  text-align: center;
+  padding-bottom: rem(16);
+  position: relative;
+  @include mq('md') {
+    width: rem(440);
+    padding-bottom: 0;
+    margin-top: rem(2);
+  }
+}
+
+.contact__logo-img {
+  overflow: hidden;
+  aspect-ratio: 426 / 164;
+  width: 100%;
+  max-width: rem(174);
+  margin: auto;
+  @include mq('md') {
+    max-width: rem(213);
+  }
+}
+
+.contact__logo-img img {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+
+.contact__logo::after {
+  content: ''; /* 疑似要素を使用して下線を追加 */
+  position: absolute;
+  bottom: rem(6.4);
+  left: 50%;
+  display: block;
+  border-bottom: 1px solid $font; /* 下線のスタイルを設定 */
+  width: 85.507246376811594203%; /* 下線の幅を設定 */
+  transform: translateX(-50%);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: rem(20);
+  @include mq('md') {
+    width: 100%;
+    bottom: rem(-12);
+    box-shadow: none;
+    margin-top: rem(16);
+  }
+}
+
+.contact__access {
+  width: 100%;
+  margin-top: rem(7.2);
+  text-align: center;
+  @include mq('md') {
+    max-width: rem(440);
+    margin-top: rem(24.8);
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    display: flex;
+  }
+}
+
+.contact__store-info {
+  width: rem(180);
+  color: $font;
+  line-height: 1.75;
+  text-indent: 0.0016em;
+  letter-spacing: 0.0016em;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin: auto;
+  @include mq('md') {
+    margin: 0;
+    flex: 0 0 rem(180);
+    text-align: left;
+    text-shadow: none;
+  }
+}
+
+.contact__store-info p {
+  font-family: $english-family_2nd;
+}
+
+.contact__address {
+  display: inline-block;
+  font-style: normal;
+  margin-left: rem(-8);
+  @include mq('md') {
+    margin-left: 0;
+  }
+}
+
+.contact__map {
+  display: inline-block;
+  max-width: rem(600);
+  width: 85.51%;
+  margin-top: rem(14.4);
+  @include mq('md') {
+    width: rem(273);
+    margin-top: rem(2);
+    margin-left: rem(21);
+  }
+}
+
+.contact__map iframe {
+  width: 100%;
+  aspect-ratio: 295 / 160;
+  overflow: hidden;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  @include mq('md') {
+    aspect-ratio: 273 / 148;
+    box-shadow: none;
+  }
+}
+
+.contact__inquiry {
+  margin-top: rem(35.2);
+  text-align: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  @include mq('md') {
+    margin-top: rem(20.8);
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    justify-self: end;
+    align-items: center;
+    text-shadow: none;
+  }
+}
+
+.contact__text {
+  font-size: rem(14);
+  color: $main;
+  margin-top: rem(7.2);
+  line-height: 1.2857142857142857143;
+  @include mq('md') {
+    margin-top: rem(8);
+  }
+}
+
+.contact__link {
+  margin-top: rem(50);
+  text-align: center;
+  @include mq('md') {
+    margin-top: rem(46);
+  }
+}
+
+.contact__link .button__under {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  @include mq('md') {
+    box-shadow: none;
+  }
+}
+
+.contact__img-icon {
+  width: rem(109);
+  position: absolute;
+  top: rem(-58);
+  right: calc(50% - min(48%, rem(202)));
+  @include mq('md') {
+    top: rem(-90);
+    right: calc(50% - min(48%, rem(673)));
+    width: rem(301);
+  }
+}
+
+.contact__img-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.contact__link .link-button {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: none;
+  @include mq('md') {
+    box-shadow: none;
+  }
+}

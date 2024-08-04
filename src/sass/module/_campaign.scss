@@ -1,0 +1,50 @@
+@use 'global' as *;
+
+.campaign {
+  overflow: hidden;
+}
+
+.campaign__inner {
+  position: relative;
+}
+
+.campaign__header .section-header__jatitle {
+  @include mq('md') {
+    margin-top: rem(3.2);
+    padding-right: 0;
+  }
+}
+
+.campaign__slider {
+  // swiperの代わりにoverflow: hidden;
+  overflow: hidden;
+  margin-right: calc(50% - 50vw);
+}
+
+.campaign__swiper {
+  // swiperのoverflow:hidden;を解除
+  overflow: visible;
+  margin-top: rem(24);
+  @include mq('md') {
+    margin-top: rem(40);
+  }
+}
+
+.campaign__slide {
+  width: rem(280);
+  height: auto;
+  margin-bottom: rem(9);
+  @include mq('md') {
+    margin-bottom: rem(10);
+    width: rem(334);
+  }
+}
+
+.campaign__link {
+  text-align: center;
+  margin-top: rem(46.5);
+  height: rem(48);
+  @include mq('md') {
+    margin-top: rem(84);
+  }
+}

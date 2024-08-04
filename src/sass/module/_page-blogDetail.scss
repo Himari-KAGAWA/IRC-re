@@ -1,0 +1,116 @@
+@use 'global' as *;
+
+.page-blogDetail {
+  max-width: rem(500);
+  width: 100%;
+  margin: 0 auto;
+  @include mq('md') {
+    max-width: rem(700);
+  }
+  @include mq('lg') {
+    margin-left: 0;
+  }
+}
+
+.page-blogDetail__title {
+  color: $font;
+  font-weight: $bold;
+  font-size: rem(24);
+  line-height: 1.5;
+  margin-top: rem(8);
+  border-bottom: rem(1) solid $main;
+  padding-bottom: rem(6);
+  @include mq('md') {
+    font-size: rem(32);
+  }
+}
+
+.page-blogDetail__date {
+  color: $font;
+  font-family: $english-family;
+  font-size: rem(14);
+  line-height: 1;
+  vertical-align: top;
+  letter-spacing: -0.024em;
+}
+
+.page-blogDetail__img {
+  margin-top: rem(24);
+  overflow: hidden;
+  aspect-ratio: 345 / 231;
+  @include mq('md') {
+    margin-top: rem(40);
+    aspect-ratio: 700 / 468;
+  }
+}
+
+.page-blogDetail__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-blogDetail__content p {
+  color: $font;
+  margin-top: rem(24);
+  @include mq('md') {
+    margin-top: rem(40);
+  }
+}
+
+.page-blogDetail__content figure {
+  margin-top: rem(24);
+  overflow: hidden;
+  aspect-ratio: 345 / 231;
+  @include mq('md') {
+    margin-top: rem(40);
+    aspect-ratio: 700 / 468;
+  }
+}
+
+.page-blogDetail__content figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-blogDetail__content ul {
+  margin-top: rem(23.84);
+  margin-left: rem(27);
+  line-height: 1.7;
+  @include mq('md') {
+    margin-top: rem(40);
+    line-height: 1.65;
+  }
+}
+
+.page-blogDetail__content ul li {
+  color: $font;
+  position: relative;
+}
+
+.page-blogDetail__content ul li::before {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  left: rem(-20.8);
+  top: rem(4.8);
+  width: rem(18);
+  height: rem(18);
+  background: $font;
+  mask: url(../images/common/icon-ches.svg);
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  -webkit-mask: url(../images/common/icon-ches.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  transition: opacity 0.3s ease 0s;
+  @include mq('md') {
+    left: rem(-22);
+  }
+}
+
+.page-blogDetail__content a {
+  color: $font;
+  text-decoration: underline;
+}

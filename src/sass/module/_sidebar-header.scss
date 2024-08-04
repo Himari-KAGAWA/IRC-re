@@ -1,0 +1,23 @@
+@use 'global' as *;
+
+.sidebar-header__title {
+  display: flex;
+  align-items: center;
+  padding-left: rem(16);
+  background: transparent; /*背景透明に*/
+  border-left: solid rem(8) $main; /*左線*/
+  color: $font;
+  font-size: rem(24);
+  line-height: 1;
+  font-weight: $regular;
+}
+
+.sidebar-header__title-icon {
+  width: rem(50);
+  height: rem(50);
+  fill: $font;
+}
+
+.sidebar-header__title span {
+  margin-left: rem(8);
+}

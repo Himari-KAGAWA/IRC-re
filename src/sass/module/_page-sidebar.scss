@@ -1,0 +1,213 @@
+@use "global" as *;
+
+.page-sidebar {
+}
+
+.page-sidebar__contents {
+  max-width: rem(294);
+  width: 100%;
+  margin: auto;
+}
+
+.page-sidebar__articles {
+  margin-top: rem(24);
+}
+
+.page-sidebar__article + .page-sidebar__article {
+  margin-top: rem(24);
+}
+
+.page-sidebar__articles .card-02 {
+  padding: rem(16);
+}
+
+.page-sidebar__articles .card-02__link {
+  display: flex;
+  gap: rem(16);
+}
+
+.page-sidebar__comment-card {
+  margin-top: rem(24);
+}
+
+.page-sidebar__articles .card-02__img {
+  width: 49.186991869918699187%;
+  height: rem(90);
+  overflow: hidden;
+}
+
+.page-sidebar__articles .card-02__img img {
+  display: block;
+  width: 100%;
+  height: rem(90);
+  object-fit: cover;
+}
+
+.page-sidebar__articles .card-02__header {
+  margin: 0;
+  padding: 0;
+  border-bottom: none;
+  width: 50.813008130081300813%;
+}
+
+.page-sidebar__comment-image {
+  overflow: hidden;
+  aspect-ratio: 294 / 218;
+}
+
+.page-sidebar__comment-image img {
+  width: 100%;
+  height: auto;
+}
+
+.page-sidebar__comment-attribute {
+  color: $font;
+  font-size: rem(12);
+  line-height: 1.5;
+  margin-top: rem(16);
+}
+
+.page-sidebar__comment-title {
+  color: $font;
+  font-size: rem(24);
+  font-weight: $normal;
+  line-height: 1.5;
+  margin-top: rem(8);
+}
+
+.page-sidebar__comment-link {
+  text-align: center;
+  margin-top: rem(41.6);
+}
+
+.page-sidebar__campaign-link {
+  text-align: center;
+  margin-top: rem(54);
+}
+
+.page-sidebar__campaign-cards {
+  margin-top: rem(24);
+}
+
+.page-sidebar__campaign-card + .page-sidebar__campaign-card {
+  margin-top: rem(40);
+}
+
+.page-sidebar__archive-list {
+  margin-top: rem(24);
+}
+
+.page-sidebar__month,
+.page-sidebar__year {
+  color: $main;
+  font-size: 24px;
+  line-height: 1;
+  position: relative;
+  cursor: pointer;
+}
+
+.page-sidebar__year {
+  margin-left: rem(28);
+  font-family: $english-family_2nd;
+}
+
+.page-sidebar__year:not(:first-of-type) {
+  margin-top: rem(8);
+}
+
+.page-sidebar__month {
+  display: none;
+  margin-left: rem(53.6);
+  margin-top: rem(6.4);
+}
+
+.page-sidebar__month-item a {
+  display: block;
+  font-family: $english-family_2nd;
+  padding: rem(7.76) 0;
+}
+
+.page-sidebar__month-item {
+  position: relative;
+}
+
+.page-sidebar__month-item::before,
+.page-sidebar__year::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: rem(11) 0 rem(11) rem(18);
+  border-color: transparent transparent transparent $main;
+  position: absolute;
+  top: 0;
+  left: rem(-27.2);
+  bottom: 0;
+  margin: auto;
+  transition: transform 0.3s ease 0s;
+}
+
+.page-sidebar__archive-list {
+  margin-top: rem(29);
+  margin-left: rem(3);
+}
+
+.page-sidebar__archive-list + .page-sidebar__archive-list {
+  margin-top: rem(6.88);
+  margin-left: rem(4);
+  @include mq("md") {
+    margin-top: rem(5);
+  }
+}
+
+// アコーディオン：クリック時の動き
+.page-sidebar__year.is-rotated::before {
+  transform: rotate(90deg);
+}
+
+.page-sidebar__articles .card-02__date {
+  vertical-align: top;
+}
+
+.page-sidebar__articles .card-02__title {
+  line-height: 1;
+}
+
+.page-sidebar__campaign-card .card-01__title {
+  margin-top: 0;
+}
+
+.page-sidebar__campaign-card .card-01__img {
+  aspect-ratio: 294 / 188;
+}
+
+.page-sidebar__campaign-card .card-01__img img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-sidebar__campaign-card .card-01__body {
+  padding: rem(16) rem(23) rem(24);
+}
+
+.page-sidebar__campaign-card .card-01__content {
+  margin-top: rem(8);
+}
+
+.page-sidebar__campaign-card .card-01__lead {
+  font-size: rem(14);
+  line-height: 1.5;
+  margin-left: 0;
+}
+
+.page-sidebar__campaign-card .card-01__discount {
+  font-size: rem(32);
+  line-height: 1;
+  letter-spacing: -0.024em;
+  margin-top: rem(10);
+}
+
+.page-sidebar__campaign-card .card-01__price {
+  font-size: rem(20);
+  line-height: 1; /* 100% */
+}

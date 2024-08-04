@@ -1,0 +1,43 @@
+@use "global" as *;
+
+.top-lower-contact {
+  margin-top: rem(106);
+  @include mq("md") {
+    margin-top: rem(140);
+  }
+}
+
+.top-lower-contact--info {
+  margin-top: rem(106);
+  @include mq("md") {
+    margin-top: rem(137.6);
+  }
+}
+
+.top-lower-contact--blog {
+  margin-top: rem(112);
+  @include mq("md") {
+    margin-top: rem(140);
+  }
+}
+
+.top-lower-contact--blogDetail {
+  margin-top: rem(112);
+  @include mq("md") {
+    margin-top: rem(146.4);
+  }
+}
+
+.top-lower-contact--price {
+  margin-top: rem(106);
+  @include mq("md") {
+    margin-top: rem(140);
+  }
+}
+
+.top-lower-contact--siteMap {
+  margin-top: rem(94);
+  @include mq("md") {
+    margin-top: rem(126);
+  }
+}

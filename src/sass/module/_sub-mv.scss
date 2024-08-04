@@ -1,0 +1,211 @@
+@use 'global' as *;
+
+.sub-mv {
+  width: 100%;
+  height: rem(460);
+  position: relative;
+  @include mq('md') {
+    height: rem(548);
+  }
+}
+
+.sub-mv__inner {
+  padding: 0 rem(15);
+  height: inherit;
+  @include mq('md') {
+    height: inherit;
+  }
+}
+
+.sub-mv__bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: rem(460);
+  height: inherit;
+  @include mq('md') {
+    height: rem(548);
+  }
+}
+
+.sub-mv__bg--campaign::before {
+  background: url(../images/common/lower/page-campaign-head.webp) no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mq('md') {
+    background: url(../images/common/lower/page-campaign-head_pc.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.sub-mv__bg--about::before {
+  background: url(../images/common/lower/page-about-head.webp) no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mq('md') {
+    background: url(../images/common/lower/page-about-head_pc.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.sub-mv__bg--info::before {
+  background: url(../images/common/lower/page-information-head.webp) no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mq('md') {
+    background: url(../images/common/lower/page-information-head_pc.webp)
+      no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.sub-mv__bg--blog::before {
+  background: url(../images/common/lower/page-blog-head.webp) no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mq('md') {
+    background: url(../images/common/lower/page-blog-head_pc.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.sub-mv__bg--voice::before {
+  background: url(../images/common/lower/page-voice-head.webp) no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mq('md') {
+    background: url(../images/common/lower/page-voice-head_pc.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.sub-mv__bg--price::before {
+  background: url(../images/common/lower/page-price-head.webp) no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mq('md') {
+    background: url(../images/common/lower/page-price-head_pc.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.sub-mv__bg--faq::before {
+  background: url(../images/common/lower/page-faq-head.webp) no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mq('md') {
+    background: url(../images/common/lower//page-faq-head_pc.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.sub-mv__bg--contact::before {
+  background: url(../images/common/lower/page-contact-head.webp) no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mq('md') {
+    background: url(../images/common/lower/page-contact-head_pc.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.sub-mv__bg--siteMap::before,
+.sub-mv__bg--terms::before,
+.sub-mv__bg--privacy::before {
+  background: url(../images/common/lower/page-common-head.webp) no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mq('md') {
+    background: url(../images/common/lower/page-common-head_pc.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.sub-mv__header {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  @include mq('md') {
+    transform: translateY(0);
+  }
+}
+
+.sub-mv__title {
+  color: $base;
+  font-family: $english-family;
+  font-size: rem(36);
+  font-weight: $regular;
+  line-height: 1;
+  @include mq('md') {
+    font-size: rem(72);
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+  }
+}
+
+.sub-mv__title--info {
+  @include mq('md') {
+    letter-spacing: -0.001em;
+  }
+}
+
+.sub-mv__title--blog {
+  @include mq('md') {
+    letter-spacing: 0;
+  }
+}
+
+.sub-mv__title--price {
+  @include mq('md') {
+    letter-spacing: -0.01em;
+  }
+}
+
+.sub-mv__title--siteMap {
+  @include mq('md') {
+    letter-spacing: 0.0075em;
+    text-indent: 0.0075em;
+  }
+}
+
+.sub-mv__title--privacy {
+  @include mq('md') {
+    letter-spacing: -0.0055em;
+    text-indent: -0.0055em;
+  }
+}
+
+.sub-mv__title--terms {
+  letter-spacing: 0.003em;
+  text-indent: 0.003em;
+}
+
+.sub-mv__title::first-letter {
+  text-transform: uppercase;
+}
+
+.sub-mv__title--two::first-letter {
+  text-transform: uppercase;
+}
+
+.sub-mv__title-uppercase {
+  text-transform: uppercase;
+}
+
+.sub-mv__title--upper {
+  text-transform: uppercase;
+  letter-spacing: 0;
+}

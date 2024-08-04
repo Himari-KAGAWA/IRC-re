@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.page-price__inner.inner {
+  max-width: rem(500);
+  width: 100%;
+  margin: auto;
+  @include mq("md") {
+    box-sizing: content-box;
+    max-width: rem(700);
+  }
+}

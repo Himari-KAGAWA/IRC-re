@@ -1,0 +1,74 @@
+@use 'global' as *;
+
+.submit-button {
+  margin: auto;
+  width: rem(206);
+  padding: rem(8) rem(113) rem(17) rem(53);
+  border: 1px solid #9a9a9a;
+  border-radius: 100vh;
+  background-color: $base;
+  position: relative;
+  z-index: 1;
+}
+
+.submit-button::before {
+  content: '';
+  border: 1px solid #9a9a9a;
+  background-color: #9a9a9a;
+  height: calc(100% + rem(2));
+  width: calc(100% + rem(2));
+  position: absolute;
+  left: rem(-4);
+  top: rem(-6);
+  border-radius: 100vh;
+  z-index: -1;
+}
+
+.submit-button input {
+  font-family: $english-family;
+  font-size: rem(16);
+  color: #cdcdcd;
+  transition: color 1s;
+}
+
+.submit-button.is-submit {
+  cursor: pointer;
+  border: 1px solid $main;
+  background-color: $base;
+}
+
+.submit-button.is-submit::before {
+  cursor: pointer;
+  --color: #f7f4f2;
+  border: 1px solid $main;
+  background-image: linear-gradient(90deg, var(--color) 50%, #e65b20 50%);
+  background-position: 100%;
+  background-size: 250%;
+  transition: all 1s;
+}
+
+.submit-button.is-submit input {
+  cursor: pointer;
+  color: $base;
+}
+
+.submit-button.is-submit .arrow-submit::after,
+.submit-button.is-submit .arrow-submit::before {
+  background-color: $base;
+}
+
+// ホバースタイル
+.submit-button.is-submit:hover::before {
+  background-position: 0;
+}
+
+.submit-button.is-submit:hover input {
+  font-family: $english-family;
+  font-size: rem(16);
+  color: $main;
+}
+
+.submit-button.is-submit:hover .arrow-submit::before,
+.submit-button.is-submit:hover .arrow-submit::after {
+  background-color: $main;
+}

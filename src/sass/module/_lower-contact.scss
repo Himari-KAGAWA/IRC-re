@@ -1,0 +1,70 @@
+@use "global" as *;
+
+.lower-contact .contact__img-icon--page {
+  width: rem(109);
+  position: absolute;
+  top: rem(-48);
+  right: calc(50% - min(48%, rem(202)));
+  @include mq('md') {
+    top: rem(-70);
+    right: calc(50% - min(48%, rem(673)));
+    width: rem(301);
+  }
+}
+
+.lower-contact .contact__logo--page img {
+  height: 100%;
+}
+
+.lower-contact .section-header__jatitle--page {
+  margin-top: rem(-4);
+  @include mq("md") {
+    margin-top: rem(-6.4);
+  }
+}
+
+.lower-contact .section-header__jatitle--page2 {
+  margin-top: rem(4);
+  @include mq('md') {
+    margin-top: rem(6);
+  }
+}
+
+.lower-contact .contact__text--page {
+  margin-top: rem(7);
+}
+
+.lower-contact .contact__logo--page::after {
+  bottom: rem(3.2);
+  @include mq("md") {
+    bottom: rem(-4);
+  }
+}
+
+.lower-contact .contact__logo--page2::after {
+  bottom: rem(2.8);
+  @include mq("md") {
+    bottom: rem(-1.6);
+  }
+}
+
+.lower-contact .contact__access--page {
+  margin-top: rem(8.8);
+  @include mq("md") {
+    margin-top: rem(24);
+  }
+}
+
+.lower-contact .contact__access--page2 {
+  margin-top: rem(10.4);
+  @include mq("md") {
+    margin-top: rem(24);
+  }
+}
+
+.lower-contact .contact__text--page2 {
+  margin-top: rem(4.8);
+  @include mq("md") {
+    margin-top: rem(5.6);
+  }
+}

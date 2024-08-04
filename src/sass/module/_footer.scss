@@ -1,0 +1,246 @@
+@use 'global' as *;
+
+.footer {
+  width: 100%;
+  background-color: $font;
+  padding-top: rem(48);
+  padding-bottom: rem(56);
+  @include mq('md') {
+    padding-top: rem(80);
+    padding-bottom: rem(80);
+  }
+}
+
+.footer__wrapper {
+  max-width: rem(500);
+  width: 100%;
+  margin: auto;
+  @include mq('md') {
+    max-width: rem(1008);
+    box-sizing: content-box;
+    margin: 0;
+  }
+}
+
+.footer-nav__logo {
+  width: 100%;
+  @include mq('md') {
+    display: flex;
+    margin: 0;
+  }
+}
+
+.footer-nav__logo img {
+  display: block;
+  width: rem(140);
+  height: auto;
+  @include mq('md') {
+    width: rem(240);
+  }
+}
+
+.footer-nav__sns {
+  margin-top: rem(16);
+  display: flex;
+  @include mq('md') {
+    margin-left: rem(40);
+    padding-bottom: rem(5);
+    align-items: flex-end;
+  }
+}
+
+.footer-nav__icon {
+  width: rem(24);
+  height: rem(24);
+  @include mq('md') {
+    width: rem(32);
+    height: rem(32);
+    transition: opacity 0.3s ease 0s;
+  }
+}
+
+.footer-nav__icon + .footer-nav__icon {
+  margin-left: rem(16);
+}
+
+.footer-nav__icon--x {
+  width: rem(18);
+  height: rem(18);
+  margin-top: rem(3);
+  @include mq('md') {
+    width: rem(24);
+    height: rem(24);
+    margin-bottom: rem(4);
+  }
+}
+
+.footer-nav__icon:hover a {
+  opacity: 0.7;
+}
+
+.footer-nav__content {
+  color: $base;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+  margin-top: rem(28.8);
+  @include mq('md') {
+    max-width: rem(1008);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: rem(12);
+  }
+}
+
+.footer-nav__content--page {
+  margin-top: rem(26.4);
+  @include mq('md') {
+    margin-top: rem(28.8);
+  }
+}
+
+.footer-nav__content--page2 {
+  margin-top: rem(27.2);
+  @include mq('md') {
+    margin-top: rem(28.8);
+  }
+}
+
+.footer-nav__items1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  margin-left: rem(22);
+  @include mq('md') {
+    margin-left: rem(23);
+  }
+}
+
+.footer-nav__items1 .footer-nav__item {
+  margin-left: rem(2);
+  @include mq('md') {
+    margin-left: 0;
+  }
+}
+
+.footer-nav__items2 {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  margin-left: rem(22);
+  margin-top: rem(16);
+  @include mq('md') {
+    margin-top: 0;
+    margin-left: rem(34);
+  }
+}
+
+.footer-nav__items3 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  margin-left: rem(33);
+  @include mq('md') {
+    margin-left: rem(35);
+  }
+}
+
+.footer-nav__items4 {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  margin-left: rem(33);
+  margin-top: rem(16);
+  @include mq('md') {
+    margin-left: rem(34);
+    margin-top: 0;
+  }
+}
+
+.footer-nav__item a {
+  display: inline-block;
+  width: 100%;
+  color: inherit;
+  font-weight: $regular;
+  font-size: clamp(rem(14), 3.733333333vw, rem(16));
+  line-height: 1.125;
+  padding-top: rem(12);
+  padding-bottom: rem(12);
+  transition: opacity 0.3s ease 0s;
+  @include mq('md') {
+    font-size: rem(16);
+  }
+}
+
+.footer-nav__item--layout {
+  margin-top: rem(16);
+}
+
+.footer-nav__item-bold a {
+  font-weight: $bold;
+}
+
+.footer-nav__item-bold {
+  position: relative;
+}
+
+.footer-nav__item-bold::before {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  left: rem(-20.8);
+  top: rem(11.2);
+  width: rem(18);
+  height: rem(18);
+  background-color: $base;
+  mask: url(../images/common/icon-ches.svg);
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  -webkit-mask: url(../images/common/icon-ches.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  transition: opacity 0.3s ease 0s;
+  @include mq('md') {
+    left: rem(-22);
+  }
+}
+
+.footer__corporate {
+  width: 100%;
+  text-align: center;
+  margin-top: rem(20);
+  @include mq('md') {
+    margin-top: rem(62.4);
+    margin: auto;
+  }
+}
+
+.footer__corporate small {
+  font-family: $english-family_2nd;
+  font-size: rem(11);
+  color: $base;
+  font-weight: 300;
+  letter-spacing: 0.01rem;
+  @include mq('md') {
+    font-size: rem(12);
+    line-height: 1.2857142857142857143;
+    letter-spacing: 0.032rem;
+  }
+}
+
+.footer--404 {
+  padding-top: rem(90);
+  @include mq('md') {
+    padding-top: rem(231);
+  }
+}
+
+.footer__corporate--page {
+  margin-top: rem(21.6);
+  @include mq('md') {
+    margin-top: rem(62.4);
+  }
+}
+
+// ホバースタイル
+.footer-nav__item:hover a,
+.footer-nav__item:hover.footer-nav__item-bold::before {
+  opacity: 0.7;
+}

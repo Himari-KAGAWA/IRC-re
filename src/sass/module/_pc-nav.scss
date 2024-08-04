@@ -1,0 +1,61 @@
+@use "global" as *;
+
+.pc-nav {
+  height: inherit;
+}
+
+.pc-nav__items {
+  height: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.pc-nav__item {
+  height: inherit;
+}
+
+.pc-nav__item a {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  font-weight: $regular;
+  font-size: rem(10);
+  color: $base;
+  line-height: 1.68;
+  padding: 0 rem(16);
+  position: relative;
+}
+
+.pc-nav__item a span {
+  display: block;
+  font-family: $english-family;
+  font-size: rem(16);
+  line-height: 1.15;
+  margin-bottom: rem(2);
+}
+
+.pc-nav__item a::before {
+  content: "";
+  position: absolute;
+  bottom: rem(18.4);
+  left: 50%; /* 中央からスタート */
+  transform: translateX(-50%); /* 中央に配置 */
+  width: 0;
+  height: rem(1);
+  background-color: $base;
+  transition: width 0.4s ease 0s, background-color 0.4s ease 0s;
+}
+
+.pc-nav__item a:hover::before {
+  width: calc(100% - rem(40));
+}
+
+.pc-nav__link--ja {
+  font-family: $base-font-family;
+  font-weight: $regular;
+  font-size: rem(10);
+  margin-top: rem(3);
+  line-height: 1.5;
+}

@@ -1,0 +1,29 @@
+@use 'global' as *;
+
+.voice-cards {
+  @include mq('md') {
+    grid-gap: rem(40);
+    display: grid;
+    gap: rem(80) rem(40);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.voice-cards__item {
+  height: 100%;
+  min-height: rem(420);
+  @include mq('md') {
+    min-height: rem(396);
+  }
+}
+
+.voice-cards__item + .voice-cards__item {
+  margin-top: rem(40);
+  @include mq('md') {
+    margin-top: 0;
+  }
+}
+
+.voice-cards__item.card-03 {
+  padding-bottom: rem(23.68);
+}

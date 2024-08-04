@@ -1,0 +1,35 @@
+@use 'global' as *;
+
+.category-list {
+}
+
+.category-list__items {
+  display: grid;
+  grid-template-columns: repeat(2, rem(162));
+  grid-template-rows: repeat(auto-fit, 1fr);
+  gap: rem(16) rem(20);
+  justify-content: center;
+  @include mq('md') {
+    grid-template-columns: repeat(auto-fit, rem(162));
+    grid-template-rows: 1fr;
+    gap: 32px;
+    justify-content: start;
+  }
+}
+
+.category-list__item-link.category--link {
+  min-width: rem(162);
+  font-size: rem(14);
+  font-family: $english-family;
+  padding: rem(8.8) rem(11);
+}
+
+.category-list__item-link:hover.category {
+  background-color: $main;
+  color: $base;
+}
+
+.category-list__item-link.is-show.category {
+  background-color: $main;
+  color: $base;
+}

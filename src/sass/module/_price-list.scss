@@ -1,0 +1,186 @@
+@use 'global' as *;
+
+.price-list + .price-list {
+  margin-top: rem(40);
+  @include mq('md') {
+    margin-top: rem(80);
+  }
+}
+
+.price-list__courses {
+  width: 100%;
+  @include mq('md') {
+    display: flex;
+  }
+}
+
+.price-list__course {
+  text-align: center;
+}
+
+.price-list__header {
+  background-color: $main;
+  @include mq('md') {
+    flex: 1 1 28.3%;
+    align-self: stretch;
+    position: relative;
+  }
+}
+
+.price-list__header-content {
+  padding: rem(7.2);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  @include mq('md') {
+    padding: rem(8);
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    text-align: center;
+  }
+}
+
+.price-list__course {
+  color: $base;
+  font-size: rem(16);
+  font-weight: $bold;
+  margin-left: rem(8);
+  @include mq('md') {
+    margin-left: 0;
+  }
+}
+
+.price-list__course-sub {
+  color: $base;
+  font-size: rem(16);
+}
+
+.price-list__icon {
+  width: rem(52);
+  @include mq('md') {
+    margin: rem(8) auto 0;
+    width: rem(64);
+  }
+}
+
+.price-list__icon img {
+  fill: $font;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.price-list__course-list {
+  flex: 1 1 71.428571%;
+}
+
+.price-list__list-header {
+  display: grid;
+  grid-template-columns: 40% 30% 30%;
+  text-align: center;
+  border: rem(1) solid $main;
+  border-bottom: rem(2) solid $main;
+  font-weight: bold;
+  @include mq('md') {
+    grid-template-columns: 36% 32% 32%;
+  }
+}
+
+.price-list__header-title {
+  color: $font;
+  height: rem(36);
+  border-right: rem(1) solid $main;
+  line-height: rem(36);
+  vertical-align: middle;
+}
+
+.price-list__header-title.last {
+  border-right: none;
+}
+
+.price-list__corse-menus {
+  display: grid;
+  grid-template-columns: 40% 30% 30%;
+  flex-wrap: wrap;
+  align-items: stretch;
+  border-bottom: none;
+  @include mq('md') {
+    grid-template-columns: 36% 32% 32%;
+  }
+}
+
+.price-list__corse-menus:nth-of-type(1) {
+  border-top: rem(1) solid $main;
+}
+
+.price-list__corse-menus dt {
+  padding: rem(16) rem(8) rem(8) rem(14);
+  line-height: 1.12;
+  height: rem(60.3333333333);
+  border-right: rem(1) solid $main;
+  border-left: rem(1) solid $main;
+  border-bottom: rem(1) solid $main;
+  text-align: left;
+  color: $font;
+  @include mq('md') {
+    height: rem(59);
+  }
+}
+
+.price-list__corse-menu.lines {
+  line-height: 1;
+  padding-top: rem(12);
+  @include mq('md') {
+    line-height: rem(60.3333333333);
+    vertical-align: middle;
+    padding-top: 0;
+  }
+}
+
+.price-list__corse-menus dd {
+  padding: rem(16) rem(8) rem(8) rem(14);
+  line-height: 1.21;
+  height: rem(60.3333333333);
+  border-right: rem(1) solid $main;
+  border-bottom: rem(1) solid $main;
+  text-align: right;
+  padding-right: rem(8);
+  color: $font;
+  font-family: $english-family_2nd;
+  @include mq('md') {
+    height: rem(59);
+  }
+}
+
+.price-list__list-header--col2 {
+  grid-template-columns: 2fr 1fr;
+  @include mq('md') {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.price-list__corse-menus--col2 {
+  grid-template-columns: 2fr 1fr;
+  @include mq('md') {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.price-list__attention {
+  width: 100%;
+  margin-left: auto;
+  text-align: left;
+  line-height: 1;
+  @include mq('md') {
+    width: 71.428571%;
+  }
+}
+
+.price-list__attention small {
+  color: $font;
+}

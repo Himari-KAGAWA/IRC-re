@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.top-sidebar {
+  margin-top: rem(80);
+  @include mq("md") {
+    margin-top: rem(80);
+  }
+  @include mq("lg") {
+    margin-top: 0;
+  }
+}

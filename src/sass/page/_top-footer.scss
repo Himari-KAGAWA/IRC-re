@@ -1,0 +1,43 @@
+@use "global" as *;
+
+.top-footer {
+  margin-top: rem(104);
+  @include mq("md") {
+    margin-top: rem(160);
+  }
+}
+
+.top-footer--blog {
+  margin-top: rem(102.4);
+  @include mq("md") {
+    margin-top: rem(160);
+  }
+}
+
+.top-footer--price {
+  margin-top: rem(106);
+  @include mq("md") {
+    margin-top: rem(160);
+  }
+}
+
+.top-footer--contact {
+  margin-top: rem(146);
+  @include mq("md") {
+    margin-top: rem(164);
+  }
+}
+
+.top-footer--thx {
+  margin-top: rem(144);
+  @include mq("md") {
+    margin-top: rem(120);
+  }
+}
+
+.top-footer--terms {
+  margin-top: rem(104);
+  @include mq("md") {
+    margin-top: rem(160);
+  }
+}

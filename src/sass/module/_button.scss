@@ -1,0 +1,46 @@
+@use 'global' as *;
+
+.btn {
+  --color: #f7f4f2;
+  cursor: pointer;
+  margin: 0.5rem;
+  padding: rem(16) rem(80) rem(18) rem(60);
+  border: 1px solid $main;
+  border-radius: 100vh;
+  background-image: linear-gradient(90deg, var(--color) 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 250%;
+  background-color: #e65b20;
+  color: var(--color);
+  text-decoration: none;
+  transition: all 1s;
+  position: relative;
+  z-index: 1;
+}
+
+.btn::before {
+  box-sizing: border-box;
+  content: '';
+  height: 100%;
+  position: absolute;
+  left: rem(4);
+  top: rem(4);
+  width: 100%;
+  border: 1px solid $main;
+  border-radius: 100vh;
+  z-index: -1;
+}
+
+.btn:hover {
+  background-position: 0;
+  border: 1px solid $main;
+  color: $main;
+}
+
+.btn:hover .arrow-x::before {
+  background-color: $main;
+}
+
+.btn:hover .arrow-x::after {
+  background-color: $main;
+}

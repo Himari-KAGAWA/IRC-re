@@ -1,0 +1,162 @@
+@use 'global' as *;
+
+.card-01 {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  // width: 100%;
+  // height: auto;
+  color: $font;
+}
+
+.card-01__link {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: opacity 0.3s ease 0s;
+}
+
+.card-01__link:hover {
+  opacity: 0.8;
+}
+
+.card-01__img {
+  overflow: hidden;
+  aspect-ratio: 280 / 188;
+  @include mq('md') {
+    aspect-ratio: 334 / 223;
+  }
+}
+
+.card-01__img img {
+  width: 100%;
+  height: auto;
+}
+
+.card-01__body {
+  padding: rem(16) rem(16) rem(23.2);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  @include mq('md') {
+    padding-top: rem(24);
+    padding-bottom: rem(40);
+  }
+}
+
+.card-01__header {
+  flex: 1;
+  text-align: left;
+  border-bottom: rem(1) solid $main;
+  padding-bottom: rem(6.88);
+  display: flex;
+  flex-direction: column;
+  @include mq('md') {
+    padding-bottom: rem(7.2);
+  }
+}
+
+.card-01__title {
+  font-weight: $regular;
+  font-size: rem(16);
+  font-weight: $normal;
+  margin-top: rem(4.8);
+  @include mq('md') {
+    margin-top: rem(4);
+  }
+}
+
+.card-01__lead {
+  font-size: rem(14);
+  @include mq('md') {
+    font-size: rem(16);
+    margin-left: rem(-15);
+  }
+}
+
+.card-01__content {
+  display: block;
+  margin-top: rem(9.28);
+  font-size: rem(14);
+  text-align: center;
+  @include mq('md') {
+    margin-top: rem(16);
+  }
+}
+
+.card-01__discount {
+  display: inline-block;
+  font-family: $english-family_2nd;
+  font-weight: $bold;
+  color: $main;
+  line-height: 1;
+  font-size: rem(32);
+  margin-top: rem(9.6);
+  letter-spacing: -0.02em;
+  @include mq('md') {
+    font-size: rem(40);
+    margin-top: rem(16);
+  }
+}
+
+.card-01__price {
+  font-family: $english-family_2nd;
+  font-weight: $bold;
+  color: $font;
+  line-height: 1;
+  font-size: rem(20);
+  text-decoration: line-through;
+  text-decoration-color: #c94800;
+  text-decoration-thickness: 3px;
+  margin-right: rem(12);
+  text-align: left;
+  @include mq('md') {
+    font-size: rem(24);
+    margin-right: rem(14);
+  }
+}
+
+.card-01__title--page {
+  font-size: rem(16);
+  font-weight: $normal;
+  @include mq('md') {
+    margin-top: rem(12);
+    font-size: rem(24);
+    line-height: 1.08;
+  }
+}
+
+.card-01__lower-unit {
+  display: none;
+  margin-top: rem(24);
+  @include mq('md') {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.card-01__lower-unit .period {
+  margin-top: rem(32);
+  color: $main;
+  font-family: $english-family;
+  font-weight: $bold;
+  line-height: 1.125;
+  margin-left: rem(-14);
+  letter-spacing: 0.014em;
+}
+
+.card-01__lower-unit .click-here {
+  margin: rem(7) auto 0;
+  color: $main;
+  font-size: 14px;
+  line-height: 1.285714;
+}
+
+.card-01__lower-unit .click-here--hide {
+  visibility: hidden;
+}
+
+.card-01__lower-unit-link {
+  margin-top: rem(32);
+  margin-left: rem(-4);
+  height: rem(48);
+}

@@ -1,0 +1,81 @@
+@use 'global' as *;
+
+.arrow {
+  width: rem(48);
+  height: rem(48);
+  border: rem(1) solid $main;
+  border-radius: 100%;
+  position: relative;
+  @include mq('md') {
+    width: rem(80);
+    height: rem(80);
+  }
+}
+
+.arrow::before {
+  background-color: $main;
+  border-radius: 100vh;
+  content: '';
+  position: absolute;
+  top: rem(16);
+  right: calc(50% - rem(1));
+  transform: translateY(calc(-50% - rem(3))) rotate(-50deg);
+  width: rem(10);
+  height: rem(1);
+  @include mq('md') {
+    top: rem(26);
+  }
+}
+
+.arrow::after {
+  background-color: $main;
+  border-radius: 100vh;
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translateY(-50%);
+  width: rem(1);
+  height: rem(28);
+  @include mq('md') {
+    height: rem(40);
+  }
+}
+
+.arrow-x {
+  position: relative;
+}
+
+.arrow-x::before {
+  content: '';
+  position: absolute;
+  top: calc(50%);
+  right: rem(-82);
+  transform: translateY(calc(-50% - rem(5))) rotate(42deg);
+  width: rem(10);
+  height: rem(1);
+  background-color: $base;
+  transition: background-color 0.3s ease 0s;
+}
+
+.arrow-x::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - rem(2));
+  right: rem(-80);
+  transform: translateY(-50%);
+  width: rem(40);
+  height: rem(1);
+  background-color: $base;
+  transition: background-color 0.3s ease 0s;
+}
+
+.arrow-x--400::before {
+  background-color: $main;
+  right: rem(-72);
+}
+
+.arrow-x--400::after {
+  background-color: $main;
+  right: rem(-70);
+}

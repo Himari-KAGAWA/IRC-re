@@ -1,0 +1,74 @@
+@use 'global' as *;
+
+.card-03 {
+  padding: rem(15) rem(16) rem(24);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  color: $font;
+  cursor: pointer;
+  @include mq('md') {
+    padding: rem(24);
+  }
+}
+
+.card-03__header {
+  display: flex;
+  align-items: flex-end;
+}
+
+.card-03__left {
+  flex: 1 0 47.605%;
+  border-bottom: rem(1) solid $main;
+  padding-bottom: rem(2.4);
+  margin-right: rem(13);
+  @include mq('md') {
+    flex: 1 0 58.474576271186440678%;
+    margin-right: rem(16);
+    padding-bottom: rem(2);
+  }
+}
+
+.card-03__attribute {
+  font-weight: $regular;
+  font-size: rem(12);
+  @include mq('md') {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+}
+
+.card-03__title {
+  font-weight: $normal;
+  font-size: rem(16);
+  margin-top: rem(3.4);
+  line-height: 1.08;
+  padding-bottom: rem(2);
+  @include mq('md') {
+    font-size: rem(24);
+    margin-top: rem(6.4);
+  }
+}
+
+.card-03__img {
+  flex: 1 0 48.24%;
+  overflow: hidden;
+  aspect-ratio: 151 / 117;
+  @include mq('md') {
+    flex: 1 0 38.135593220338983051%;
+    aspect-ratio: 180 / 140;
+  }
+}
+
+.card-03__img img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-03__content {
+  font-weight: $regular;
+  font-size: rem(16);
+  margin-top: rem(15);
+  @include mq('md') {
+    margin-top: rem(40);
+  }
+}

@@ -1,0 +1,18 @@
+@use "global" as *;
+
+.category {
+  display: inline-block;
+  max-width: fit-content;
+  text-align: center;
+  background-color: $base;
+  border: rem(1) solid $main;
+  color: $main;
+  font-size: rem(12);
+  line-height: 1;
+  padding: rem(7.84) rem(11);
+  transition: all 0.3s ease 0s;
+  @include mq("md") {
+    padding: rem(10) rem(15);
+    letter-spacing: 0.01rem;
+  }
+}

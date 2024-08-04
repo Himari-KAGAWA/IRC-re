@@ -1,0 +1,79 @@
+@use 'global' as *;
+
+.voice {
+  @include mq('md') {
+    position: relative;
+  }
+}
+
+.voice__inner {
+  max-width: rem(600);
+  width: 100%;
+  margin: auto;
+  @include mq('md') {
+    max-width: rem(1080);
+  }
+}
+
+.voice__header .section-header__jatitle {
+  @include mq('md') {
+    margin-top: rem(3);
+  }
+}
+
+.voice__items {
+  margin-top: rem(42.4);
+  @include mq('md') {
+    margin-top: rem(28.16);
+  }
+}
+
+.voice__item {
+  margin: 0 auto;
+  @include mq('md') {
+    margin: 0;
+  }
+}
+
+.voice__link {
+  text-align: center;
+  margin-top: rem(60);
+  @include mq('md') {
+    margin-top: rem(86);
+  }
+}
+
+.voice__link .button {
+  margin-left: rem(-2);
+  @include mq('md') {
+    margin-left: rem(-5);
+  }
+}
+
+.voice__img-icon {
+  position: absolute;
+  left: calc(50% - min(48%, rem(620)));
+  width: 100%;
+  top: rem(-120);
+  max-width: rem(330);
+  aspect-ratio: 660 / 470;
+}
+
+.voice__img-icon img {
+  width: 100%;
+  height: auto;
+}
+
+.voice__img-icon2 {
+  width: 100%;
+  max-width: rem(71);
+  position: absolute;
+  bottom: rem(-70);
+  right: calc(50% - min(48%, rem(540)));
+  aspect-ratio: 162 / 71;
+}
+
+.voice__img-icon2 img {
+  width: 100%;
+  height: auto;
+}

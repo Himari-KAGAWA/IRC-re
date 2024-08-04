@@ -1,0 +1,122 @@
+@use "global" as *;
+
+.pagination {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  gap: rem(12);
+  justify-content: center;
+  color: $main;
+}
+
+.pagination a,
+.pagination span {
+  color: $base;
+  font-family: $english-family;
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 1;
+}
+
+.pagination a {
+  align-items: center;
+  background-color: $base;
+  border: rem(1) solid $main;
+  color: $main;
+  display: inline-flex;
+  height: rem(38);
+  justify-content: center;
+  transition: 0.3s ease;
+  width: rem(38);
+}
+
+.pagination span {
+  align-items: center;
+  background-color: $base;
+  border: rem(1) solid $main;
+  color: $main;
+  display: inline-flex;
+  height: rem(38);
+  justify-content: center;
+  transition: color 0.3s ease;
+  width: rem(38);
+}
+
+.pagination span.current {
+  background-color: $main;
+  color: $base;
+}
+
+.pagination a:hover {
+  background-color: $main;
+  color: $base;
+}
+
+.pagination__prev {
+  position: relative;
+  margin-right: rem(25);
+}
+
+.pagination__next {
+  position: relative;
+  margin-left: rem(25);
+}
+
+.pagination__prev::before {
+  border-bottom: rem(1) solid $main;
+  border-left: rem(1) solid $main;
+  content: "";
+  height: rem(12);
+  transform: translateX(rem(3)) rotate(45deg);
+  width: rem(12);
+  transition: 0.3s ease;
+}
+
+.pagination__next::before {
+  border-bottom: rem(1) solid $main;
+  border-right: rem(1) solid $main;
+  content: "";
+  height: rem(12);
+  transform: translateX(rem(-3)) rotate(-45deg);
+  width: rem(12);
+  transition: 0.3s ease;
+}
+
+.pagination__prev:hover::before {
+  border-bottom: rem(1) solid $base;
+  border-left: rem(1) solid $base;
+}
+
+.pagination__next:hover::before {
+  border-bottom: rem(1) solid $base;
+  border-right: rem(1) solid $base;
+}
+
+.pagination--detail {
+  max-width: rem(158);
+}
+
+.pagination.top-pagination {
+  margin-top: rem(40);
+  @include mq("md") {
+    margin-top: rem(81.6);
+  }
+}
+
+.pagination .u-desktop {
+  display: none;
+  @include mq("md") {
+    display: inline-block;
+  }
+}
+
+.pagination--detail {
+  width: rem(158);
+}
+
+.pagination.top-pagination--voice {
+  margin-top: rem(80);
+  @include mq("md") {
+    margin-top: rem(72);
+  }
+}

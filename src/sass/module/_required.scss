@@ -1,0 +1,15 @@
+@use 'global' as *;
+
+.required {
+  display: inline-block;
+  background-color: #c94800;
+  color: $base;
+  font-size: rem(12);
+  line-height: 1;
+  text-indent: 0.4em;
+  letter-spacing: 0.4em;
+  padding: rem(4) rem(6);
+  width: rem(52);
+  text-align: center;
+  vertical-align: middle;
+}

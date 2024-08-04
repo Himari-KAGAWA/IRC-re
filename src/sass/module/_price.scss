@@ -1,0 +1,146 @@
+@use 'global' as *;
+
+.price {
+  background-color: $bg-light;
+  padding-top: rem(80);
+  padding-bottom: rem(81.6);
+  @include mq('md') {
+    padding-top: rem(95.5);
+    padding-bottom: rem(100);
+    position: relative;
+  }
+}
+
+.price__inner {
+  max-width: rem(600);
+  width: 100%;
+  margin: auto;
+  @include mq('md') {
+    max-width: rem(1130);
+  }
+}
+
+.price__header .section-header__jatitle {
+  @include mq('md') {
+    margin-top: rem(3.5);
+  }
+}
+
+.price__contents {
+  margin-top: rem(27.2);
+  display: flex;
+  flex-direction: column-reverse;
+  @include mq('md') {
+    flex-direction: row;
+    margin-top: rem(39.2);
+    max-width: rem(1080);
+    overflow: hidden;
+  }
+}
+
+.price__course-list dt,
+.price__course-list dd {
+  color: $font;
+}
+
+.price__course-list dd {
+  font-family: $english-family_2nd;
+}
+
+.price__img {
+  aspect-ratio: 345 / 227;
+  overflow: hidden;
+  @include mq('md') {
+    aspect-ratio: 492 / 746;
+    margin-left: 8.7037037037037037037%;
+  }
+}
+
+.price__img img {
+  width: 100%;
+  height: auto;
+  @include mq('md') {
+    max-width: calc(1080px - 94px / 2);
+  }
+}
+
+.price__items {
+  margin-top: rem(35.84);
+  @include mq('md') {
+    flex: 1 0 rem(493);
+    margin-top: rem(2);
+  }
+}
+
+.price__courses + .price__courses {
+  margin-top: rem(30.8);
+  @include mq('md') {
+    margin-top: rem(37.6);
+  }
+}
+
+.price__course {
+  border-bottom: 1px solid $main;
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 1.5;
+  padding-bottom: rem(3);
+  color: $font;
+}
+
+.price__corse-menus {
+  display: flex;
+  justify-content: space-between;
+  margin-top: rem(8);
+}
+
+.price__corse-menu {
+  font-size: rem(14);
+  @include mq('md') {
+    font-size: rem(16);
+  }
+}
+
+.price__corse-price {
+  font-size: rem(14);
+  margin-left: rem(8);
+  @include mq('md') {
+    font-size: rem(16);
+  }
+}
+
+.price__link {
+  margin-top: rem(60);
+  text-align: center;
+  @include mq('md') {
+    margin-top: rem(84);
+  }
+}
+
+.price__img-icon {
+  position: absolute;
+  width: 100%;
+  max-width: rem(340);
+  bottom: rem(20);
+  aspect-ratio: 680 / 520;
+  left: calc(50% - min(48%, rem(600)));
+}
+
+.price__img-icon img {
+  width: 100%;
+  height: auto;
+}
+
+.price__attention {
+  color: $font;
+  font-size: rem(12);
+  margin-top: rem(8);
+  @include mq('md') {
+    font-size: rem(14);
+    text-align: right;
+  }
+}
+
+.price__attention a {
+  text-decoration: underline;
+}

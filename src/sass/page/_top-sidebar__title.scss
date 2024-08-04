@@ -1,0 +1,22 @@
+@use "global" as *;
+
+.top-sidebar__title {
+  margin-top: rem(81.6);
+  @include mq("md") {
+    margin-top: rem(80);
+  }
+}
+
+.top-sidebar__title--c {
+  margin-top: rem(83.2);
+  @include mq("md") {
+    margin-top: rem(84.8);
+  }
+}
+
+.top-sidebar__title-a {
+  margin-top: rem(84.8);
+  @include mq("md") {
+    margin-top: rem(84);
+  }
+}
