@@ -1,6 +1,6 @@
-@use "global" as *;
+@use 'global' as *;
 
-.breadcrumb__list {
+.breadcrumb__inner {
   display: flex;
   align-items: center;
 }
@@ -15,48 +15,25 @@
   margin-top: rem(3);
 }
 
-.breadcrumb__link {
-  color: $font;
-  font-size: rem(14);
-  line-height: 1;
-  margin-left: rem(8);
-}
-
-.breadcrumb__item a {
+.breadcrumb span {
   color: $font;
   font-size: rem(14);
   line-height: 1;
   margin-left: rem(-1);
 }
 
-.breadcrumb__item .prev {
-  color: $font;
+.breadcrumb span:not(:first-child) {
   margin-left: rem(8);
 }
 
-.breadcrumb__item [aria-current="location"] {
-  margin-left: rem(8);
-  color: $font;
-  font-size: rem(14);
-  line-height: 1;
+.breadcrumb a:hover {
+  opacity: 0.7;
 }
 
-.breadcrumb__item--404 a {
+.breadcrumb--404 span {
   color: $base;
 }
 
-.breadcrumb__arrow--404 {
+.breadcrumb--404 .breadcrumb__arrow {
   border-color: $base $base transparent transparent;
-}
-
-.breadcrumb__item--404 [aria-current="location"] {
-  color: $base;
-}
-
-.breadcrumb--404 {
-  background-color: $font;
-  padding-top: rem(85);
-  @include mq('md') {
-  padding-top: rem(95);
-  }
 }

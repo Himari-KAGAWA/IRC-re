@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+/*---------------------------------------
+【管理画面】投稿仮面のカスタマイズ
+/*--------------------------------------*/
+
+/* 全体項目の背景色 */
+.edit-post-meta-boxes-area .postbox-header {
+  background-color: #c3c3c3;
+}
+
+/* 設定項目の色・フォント */
+.edit-post-meta-boxes-area .postbox-header {
+  background-color: #e3e3e3;
+}
+
+/* サイドバーの項目のスタイル */
+.components-panel__body-toggle.components-button {
+  font-weight: bold;
+}
+
+/*---------------------------------------
+【管理画面】ACF：カスタマイズ
+/*--------------------------------------*/
+/* フィールドラベルのフォントスタイル */
+.acf-fields .acf-field .acf-label label {
+  font-weight: bold;
+}
+
+/* 手順の文字色 */
+.acf-fields .acf-field p.description {
+  color: #ea5532;
+}
+
+/* テーブルヘッドのサブフィールドのスタイル */
+.acf-table > tbody > tr > th > label,
+.acf-table > thead > tr > th > label {
+  font-weight: bold;
+}
+
+.acf-table > thead > tr > th {
+  background: #e8ece9;
+}
+
+/* プレイスホルダー */
+.acf-input input::placeholder {
+  color: #d4dcd3;
+}
+
+/* テーブルの枠 */
+.acf-table,
+.acf-table > tbody > tr > td {
+  border-style: none;
+}
+
+.acf-table > thead > tr > th {
+  border-color: #fff;
+  border-width: 0 0 0 2px;
+}
+
+/* キャンペーン：サンプル画像 */
+/* .post-type-campaign #acf-group_66302aeaa48f2 .acf-fields.-top {
+  background: url(../images/common/pc/campaign-sample.jpg) no-repeat;
+  background-size: contain;
+  background-position: top right 8px;
+} */
+
+/* お客様の声：サンプル画像 */
+/* .post-type-voice #acf-group_663030a41940e .acf-fields.-top {
+  background: url(../images/common/pc/voice-sample.jpg) no-repeat;
+  background-size: contain;
+  background-position: top right 8px;
+} */
+
+/*---------------------------------------
+【管理画面】SCF：カスタマイズ
+/*--------------------------------------*/
+.smart-cf-meta-box-table td .instruction {
+  color: #ea5532;
+}
+
+.smart-cf-meta-box-table {
+  border-bottom: #d4dcd3 solid 2px;
+  border: #d4dcd3 solid 2px;
+}
+
+.smart-cf-meta-box-repeat-tables table th {
+  width: 20%;
+  font-weight: bold;
+}
+
+.dashicons-plus-alt:before {
+  color: #b2222b;
+}
+
+.dashicons-plus-alt::after {
+  content: '追加';
+  margin-left: 3px;
+  color: #a9a9a9;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.dashicons-dismiss:before {
+  color: #0000cd;
+}
+
+.dashicons-dismiss::after {
+  content: '削除';
+  margin-left: 3px;
+  color: #a9a9a9;
+  font-size: 12px;
+  vertical-align: top;
+}

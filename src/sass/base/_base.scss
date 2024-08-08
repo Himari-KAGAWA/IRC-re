@@ -63,3 +63,7 @@ body.no-scroll {
 body {
   background-color: $base;
 }
+
+body.error404 {
+  background-color: $font;
+}

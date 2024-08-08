@@ -124,7 +124,9 @@
   }
 }
 
+// インプットエリアのスタイル
 .page-contact__input input[type='text'],
+.page-contact__input input[type='tel'],
 .page-contact__input input[type='email'] {
   padding: rem(7) rem(16);
   border: rem(1) solid $main;
@@ -135,47 +137,26 @@
 /* プレースホルダー */
 /* Google Chrome / Safari / Mozilla Firefox / Opera */
 .page-contact__input input[type='text']::placeholder,
+.page-contact__input input[type='tel']::placeholder,
 .page-contact__input input[type='email']::placeholder {
-  font-family: $base-font-family;
-  font-size: rem(16);
-  color: #f8ccb3;
-}
-
-/* Microsoft Edge */
-.page-contact__input input[type='text']::-ms-input-placeholder,
-.page-contact__input input[type='email']::-ms-input-placeholder {
-  font-family: $base-font-family;
-
-  font-size: rem(16);
-  color: #f8ccb3;
-}
-
-/* Internet Explorer */
-.page-contact__input input[type='text']:-ms-input-placeholder,
-.page-contact__input input[type='email']:-ms-input-placeholder {
-  font-family: $base-font-family;
+  font-family: $english-family_2nd, $base-font-family;
   font-size: rem(16);
   color: #f8ccb3;
 }
 
 // hover,フォーカス
+.page-message__input textarea:hover,
 .page-select__input select:hover,
 .page-contact__input input[type='text']:hover,
-.page-contact__input input[type='text']:hover,
+.page-contact__input input[type='tel']:hover,
 .page-contact__input input[type='email']:hover,
+.page-message__input textarea:focus,
 .page-select__input select:focus,
 .page-contact__input input[type='text']:focus,
-.page-contact__input input[type='text']:focus,
+.page-contact__input input[type='tel']:focus,
 .page-contact__input input[type='email']:focus {
-  box-shadow: 0px 0px 0px 1px rgba(201, 72, 0, 1),
-    0px 0px 3px 2px rgba(201, 72, 0, 0.2);
-  transition: all 0.3s ease 0s;
-}
-
-.page-message__input textarea:hover,
-.page-message__input textarea:focus {
-  box-shadow: 0px 0px 0px 1px rgba(201, 72, 0, 1),
-    0px 0px 3px 2px rgba(201, 72, 0, 0.2);
+  box-shadow: 0px 0px 0px 1px rgba(230, 91, 32, 1),
+    0px 0px 3px 2px rgba(230, 91, 32, 0.2);
   transition: all 0.3s ease 0s;
 }
 
@@ -210,8 +191,8 @@
 }
 
 .page-contact__input-check input[type='checkbox']::before {
-  border-bottom: solid rem(2) #c94800;
-  border-left: solid rem(2) #c94800;
+  border-bottom: solid rem(2) $main;
+  border-left: solid rem(2) $main;
   content: '';
   display: block;
   height: rem(5);
@@ -230,8 +211,8 @@
 }
 
 .page-contact__input-check input[type='checkbox']:hover {
-  box-shadow: 0px 0px 0px 1px rgba(201, 72, 0, 1),
-    0px 0px 2px 2px rgba(201, 72, 0, 0.2);
+  box-shadow: 0px 0px 0px 1px rgba(230, 91, 32, 1),
+    0px 0px 2px 2px rgba(230, 91, 32, 0.2);
   transition: all 0.3s ease 0s;
 }
 
@@ -271,8 +252,8 @@
 }
 
 .page-contact__input-radio input[type='radio']:hover {
-  box-shadow: 0px 0px 0px 1px rgba(201, 72, 0, 1),
-    0px 0px 2px 2px rgba(201, 72, 0, 0.2);
+  box-shadow: 0px 0px 0px 1px rgba(230, 91, 32, 1),
+    0px 0px 2px 2px rgba(230, 91, 32, 0.2);
   transition: all 0.3s ease 0s;
 }
 
@@ -351,55 +332,7 @@
 .page-contact__privacy-label {
   position: relative;
   color: $font;
-}
-
-.page-contact__privacy-label::before {
-  background: $base;
-  border: solid rem(1) $main;
-  content: '';
-  display: block;
-  width: rem(22);
-  height: rem(22);
-  left: rem(-30);
-  position: absolute;
-  top: 0;
-  transition: 0.3s;
-  @include mq('md') {
-    left: rem(-39);
-  }
-}
-
-.page-contact__privacy-label::after {
-  border-bottom: solid rem(2) #c94800;
-  border-left: solid rem(2) #c94800;
-  content: '';
-  display: block;
-  height: rem(8);
-  left: rem(-26);
-  opacity: 0;
-  position: absolute;
-  top: rem(5);
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  transition: 0.3s;
-  width: rem(14);
-  @include mq('md') {
-    left: rem(-34);
-  }
-}
-
-.page-contact__privacy
-  input[type='checkbox']:checked
-  + .page-contact__privacy-label::after {
-  opacity: 1;
-}
-
-.page-contact__privacy
-  input[type='checkbox']:hover
-  + .page-contact__privacy-label::before {
-  box-shadow: 0px 0px 0px 1px rgba(201, 72, 0, 1),
-    0px 0px 3px 2px rgba(201, 72, 0, 0.2);
-  transition: all 0.3s ease 0s;
+  vertical-align: middle;
 }
 
 .page-contact__radioBox-wrap,
@@ -413,13 +346,16 @@
 }
 
 .page-contact__privacy-link {
-  vertical-align: top;
-  text-decoration: underline;
+  padding-bottom: rem(1);
+  border-bottom: rem(1) solid $font;
+}
+
+.page-contact__privacy-link:hover {
+  opacity: 0.7;
 }
 
 .page-contact__submit {
   margin-top: rem(24);
-  // text-align: center;
   @include mq('md') {
     margin-top: rem(40);
   }
@@ -441,7 +377,7 @@
 
 .page-contact__error-message p {
   text-align: left;
-  color: #c94800;
+  color: $main;
   font-size: rem(14);
   line-height: 1.5;
   width: 100%;
@@ -453,53 +389,93 @@
   }
 }
 
-.wpcf7-form-control-wrap.is-error input.wpcf7-not-valid,
-.wpcf7-form-control-wrap.is-error textarea.wpcf7-not-valid {
-  border: 1px solid #c94800;
-  background: rgba(201, 72, 0, 0.2);
+/* ===============================================
+# Contacform7のタグ
+=============================================== */
+.page-contact {
+  // ラジオボタンとチェックボックスのスタイル
+  .wpcf7-list-item {
+    margin: 0;
+  }
+
+  // お問合せを縦並びに
+  .wpcf7-checkbox .wpcf7-list-item {
+    display: block;
+  }
+
+  // 個人情報取り扱いのチェックボックス
+  input[type='checkbox']#form-privacy {
+    background: $base;
+    border: solid rem(1) $main;
+    content: '';
+    display: block;
+    width: rem(22);
+    height: rem(22);
+    left: rem(-30);
+    position: absolute;
+    top: 0;
+    transition: 0.3s;
+    @include mq('md') {
+      left: rem(-39);
+    }
+  }
+
+  // 個人情報取り扱いのチェックマーク
+  input[type='checkbox']#form-privacy::after {
+    border-bottom: solid rem(2) $main;
+    border-left: solid rem(2) $main;
+    content: '';
+    display: block;
+    height: rem(8);
+    opacity: 0;
+    position: absolute;
+    top: rem(4);
+    left: rem(3);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    transition: 0.3s;
+    width: rem(14);
+  }
+
+  // 個人情報取り扱いのチェックマーク表示
+  input[type='checkbox']#form-privacy:checked::after {
+    opacity: 1;
+  }
+
+  // 個人情報取り扱いのホバー時のスタイル
+  input[type='checkbox']#form-privacy:hover {
+    box-shadow: 0px 0px 0px 1px rgba(230, 91, 32, 1),
+      0px 0px 3px 2px rgba(230, 91, 32, 0.2);
+    transition: all 0.3s ease 0s;
+  }
+
+  // 送信ボタンのスピナー削除
+  .wpcf7-spinner {
+    display: none !important;
+  }
+
+  //////////////////////////////
+  // 必須項目未入力時のスタイル
+  //////////////////////////////
+
+  // インプットエリアのスタイル
+  textarea.wpcf7-not-valid,
+  input[type='text'].wpcf7-not-valid,
+  input[type='tel'].wpcf7-not-valid,
+  input[type='email'].wpcf7-not-valid {
+    border: rem(2) solid $font;
+    background-color: rgba(230, 91, 32, 0.2);
+  }
+
+  // プレイスホルダー
+  input[type='text'].wpcf7-not-valid::placeholder,
+  input[type='tel'].wpcf7-not-valid::placeholder,
+  input[type='email'].wpcf7-not-valid::placeholder {
+    color: $base;
+  }
+
+  .wpcf7-not-valid input[type="checkbox"] {
+    border: rem(2) solid $font;
+    background-color: rgba(230, 91, 32, 0.2);
+  }
 }
-
-.wpcf7-form-control-wrap.is-error input.wpcf7-not-valid,
-.wpcf7-form-control-wrap.is-error textarea.wpcf7-not-valid {
-  border: 1px solid #c94800;
-  background: rgba(201, 72, 0, 0.2);
-}
-
-.wpcf7-form-control-wrap.is-error .wpcf7-not-valid [type='checkbox'] {
-  border: 1px solid #c94800;
-  background: rgba(201, 72, 0, 0.2);
-}
-
-.wpcf7-form-control-wrap.is-error
-  .wpcf7-not-valid
-  [type='checkbox']
-  + .page-contact__privacy-label::before {
-  border: 1px solid #c94800;
-  background: rgba(201, 72, 0, 0.2);
-}
-
-// /* プレースホルダー */
-// /* Google Chrome / Safari / Mozilla Firefox / Opera */
-// .page-contact__input input[type="text"]:invalid::placeholder,
-// .page-contact__input input[type="email"]:invalid::placeholder {
-//   font-family: $base-font-family;
-//   font-size: rem(16);
-//   color: #fff;
-// }
-
-// /* Microsoft Edge */
-// .page-contact__input input[type="text"]:invalid::-ms-input-placeholder,
-// .page-contact__input input[type="email"]:invalid::-ms-input-placeholder {
-//   font-family: $base-font-family;
-
-//   font-size: rem(16);
-//   color: #fff;
-// }
-
-// /* Internet Explorer */
-// .page-contact__input input[type="text"]:invalid:-ms-input-placeholder,
-// .page-contact__input input[type="email"]:invalid:-ms-input-placeholder {
-//   font-family: $base-font-family;
-//   font-size: rem(16);
-//   color: #fff;
-// }

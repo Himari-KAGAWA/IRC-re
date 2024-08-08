@@ -1,6 +1,12 @@
-@use "global" as *;
+@use 'global' as *;
 
 .top-breadcrumb {
   margin-top: rem(4.8);
 }
 
+.top-breadcrumb--404 {
+  padding-top: rem(85);
+  @include mq('md') {
+    padding-top: rem(95);
+  }
+}
