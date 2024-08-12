@@ -219,6 +219,7 @@
 
 .page-information__img {
   margin-top: rem(8);
+  width: 100%;
   overflow: hidden;
   aspect-ratio: 320 / 213;
   @include mq('md') {
@@ -230,5 +231,6 @@
 
 .page-information__img img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }

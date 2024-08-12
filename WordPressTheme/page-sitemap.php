@@ -37,7 +37,7 @@
             </li>
             <li class="sitemap__item">
               <a href="<?php echo esc_url(home_url('/')); ?>
-/campaign_category/tour">外乗ツアープログラム</a>
+/campaign_category/tour">外乗ツアー</a>
             </li>
             <li class="sitemap__item sitemap__item-bold sitemap__item--layout">
               <a href="<?php echo esc_url(home_url('/about-us')); ?>">私たちについて</a>

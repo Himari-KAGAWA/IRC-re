@@ -60,7 +60,9 @@
   width: 100%;
   height: auto;
   @include mq('md') {
+    height: 100%;
     max-width: calc(1080px - 94px / 2);
+    object-fit: cover;
   }
 }
 

@@ -95,8 +95,12 @@ jQuery(function ($) {
 
   // スクリーンリーダー対応のためのラベル設定関数
   var setAriaLabels = function setAriaLabels() {
-    document.querySelector('.js-campaign-next').setAttribute('aria-label', '次のスライド');
-    document.querySelector('.js-campaign-prev').setAttribute('aria-label', '前のスライド');
+    document
+      .querySelector('.js-campaign-next')
+      .setAttribute('aria-label', '次のスライド');
+    document
+      .querySelector('.js-campaign-prev')
+      .setAttribute('aria-label', '前のスライド');
   };
 
   // スライダー初期化の実行
@@ -119,7 +123,8 @@ jQuery(function ($) {
       }
       if (scrollPos >= footer.offset().top - windowHeight) {
         // フッターの近くに到達した場合
-        var newBottom = scrollPos + windowHeight - (footer.offset().top - originalBottom);
+        var newBottom =
+          scrollPos + windowHeight - (footer.offset().top - originalBottom);
         toTop.css('bottom', newBottom + 'px');
       } else {
         // フッターの近くに到達していない場合
@@ -156,9 +161,12 @@ jQuery(function ($) {
     var id = jQuery(this).attr('href');
     var target = jQuery('#' == id ? 'html' : id);
     var position = jQuery(target).offset().top;
-    jQuery('html, body').animate({
-      scrollTop: position
-    }, speed, 'swing' // swing or linear
+    jQuery('html, body').animate(
+      {
+        scrollTop: position
+      },
+      speed,
+      'swing' // swing or linear
     );
   });
 
@@ -177,18 +185,27 @@ jQuery(function ($) {
     //inviewを使って背景色が画面に現れたら処理をする
     color.on('inview', function () {
       if (counter == 0) {
-        $(this).delay(200).animate({
-          width: '100%'
-        }, speed, function () {
-          image.css('opacity', '1');
-          $(this).css({
-            left: '0',
-            right: 'auto'
-          });
-          $(this).animate({
-            width: '0%'
-          }, speed);
-        });
+        $(this)
+          .delay(200)
+          .animate(
+            {
+              width: '100%'
+            },
+            speed,
+            function () {
+              image.css('opacity', '1');
+              $(this).css({
+                left: '0',
+                right: 'auto'
+              });
+              $(this).animate(
+                {
+                  width: '0%'
+                },
+                speed
+              );
+            }
+          );
         counter = 1;
       }
     });
@@ -214,7 +231,10 @@ jQuery(function ($) {
       var index = $('.page-information__tabs li').index(this); //何番目のタブがクリックされたかを格納
       $('.page-information__tabs li').removeClass('is-active');
       $(this).addClass('is-active');
-      $('.page-information__tabs .page-information__tab-panel').removeClass('is-active').eq(index).addClass('is-active'); //○番目のコンテンツのみを表示
+      $('.page-information__tabs .page-information__tab-panel')
+        .removeClass('is-active')
+        .eq(index)
+        .addClass('is-active'); //○番目のコンテンツのみを表示
     });
   });
   // ========== タブへダイレクトリンクの実装：information ==========
@@ -226,11 +246,17 @@ jQuery(function ($) {
     var tabname = hash ? hash.slice(1) : 'panel1';
     //コンテンツ非表示・タブを非アクティブ
     $('.page-information__tabs li').removeClass('is-active');
-    $('.page-information__tabs .page-information__tab-panel').removeClass('is-active');
+    $('.page-information__tabs .page-information__tab-panel').removeClass(
+      'is-active'
+    );
     //何番目のタブかを格納
-    var tabno = $('.page-information__tabs .page-information__tab-panel#' + tabname).index();
+    var tabno = $(
+      '.page-information__tabs .page-information__tab-panel#' + tabname
+    ).index();
     //コンテンツ表示
-    $('.page-information__tabs .page-information__tab-panel').eq(tabno).addClass('is-active');
+    $('.page-information__tabs .page-information__tab-panel')
+      .eq(tabno)
+      .addClass('is-active');
     //タブのアクティブ化
     $('.page-information__tabs li').eq(tabno).addClass('is-active');
     // タブへスクロール（タブへのダイレクトリンクの場合にのみ実行）
@@ -257,8 +283,17 @@ jQuery(function ($) {
           var imgElement = trigger.querySelector('img');
           var imagePath = imgElement.getAttribute('src');
           var imageAlt = imgElement.getAttribute('alt');
+
           // モーダル内の画像要素に画像を表示
-          modalImage.innerHTML = '<img src="'.concat(imagePath, '" alt="', imageAlt, '">');
+          var modalImgElement = modalImage.querySelector('img');
+          if (!modalImgElement) {
+            // もしモーダルに画像要素がない場合、新しく作成して追加
+            modalImgElement = document.createElement('img');
+            modalImage.appendChild(modalImgElement);
+          }
+          modalImgElement.src = imagePath;
+          modalImgElement.alt = imageAlt;
+
           // モーダルを表示
           var modal = document.querySelector('.js-modal');
           if (modal) {
@@ -316,14 +351,25 @@ jQuery(function ($) {
       var $filterItem = $this.attr('data-filter');
       // データ属性が ALL なら全ての要素を表示
       if ($filterItem == 'ALL') {
-        $item.removeClass('is-show').fadeOut().promise().done(function () {
-          $item.addClass('is-show').fadeIn();
-        });
+        $item
+          .removeClass('is-show')
+          .fadeOut()
+          .promise()
+          .done(function () {
+            $item.addClass('is-show').fadeIn();
+          });
         // all 以外の場合は、クリックした要素のdata属性の値を同じ値のアイテムを表示
       } else {
-        $item.removeClass('is-show').fadeOut().promise().done(function () {
-          $item.filter('[data-item = "' + $filterItem + '"]').addClass('is-show').fadeIn();
-        });
+        $item
+          .removeClass('is-show')
+          .fadeOut()
+          .promise()
+          .done(function () {
+            $item
+              .filter('[data-item = "' + $filterItem + '"]')
+              .addClass('is-show')
+              .fadeIn();
+          });
       }
     });
   });

@@ -40,12 +40,12 @@
 .card-03__title {
   font-weight: $normal;
   font-size: rem(16);
-  margin-top: rem(3.4);
+  margin-top: rem(4);
   line-height: 1.08;
   padding-bottom: rem(2);
   @include mq('md') {
     font-size: rem(24);
-    margin-top: rem(6.4);
+    margin-top: rem(8);
   }
 }
 
@@ -60,6 +60,7 @@
 }
 
 .card-03__img img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }

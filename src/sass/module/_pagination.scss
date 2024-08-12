@@ -1,8 +1,6 @@
 @use 'global' as *;
 
 .pagination {
-  margin: 0 auto;
-  width: 100%;
 }
 
 .pagination .wp-pagenavi {
@@ -112,9 +110,9 @@
 
 // ブログ詳細：次のページ・前のページ
 .pagination--detail {
-  max-width: rem(158);
   display: flex;
-  justify-content: space-between;
+  gap: rem(82);
+  justify-content: center;
 }
 
 .pagination--detail .previouspostslink::before {
@@ -123,4 +121,9 @@
 
 .pagination--detail .nextpostslink::before {
   transform: translateX(rem(-3)) rotate(-45deg);
+}
+
+.pagination--detail .nextpostslink,
+.pagination--detail .previouspostslink {
+  margin: 0;
 }

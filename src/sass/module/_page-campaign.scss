@@ -12,7 +12,6 @@
   @include mq("md") {
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     gap: rem(80) rem(40);
   }
 }

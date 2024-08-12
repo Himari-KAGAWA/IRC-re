@@ -156,7 +156,7 @@
             $has_valid_lessons = false;
             foreach ($lessons as $lesson) {
               $title = isset($lesson['membership_lesson']) ? esc_html($lesson['membership_lesson']) : '';
-              $fee = isset($lesson['riding_fee']) ? intval($lesson['riding_fee']) : 0;
+              $fee = isset($lesson['membership_ridingFee']) ? intval($lesson['membership_ridingFee']) : 0;
               $times = isset($lesson['membership_time']) ? intval($lesson['membership_time']) : 0;
 
               // ここで $title と $fee と $times が有効かを確認
@@ -237,7 +237,7 @@
                     <!-- データ -->
                     <?php foreach ($lessons as $lesson) :
                       $title = isset($lesson['membership_lesson']) ? esc_html($lesson['membership_lesson']) : '';
-                      $fee = isset($lesson['riding_fee']) ? intval($lesson['riding_fee']) : 0;
+                      $fee = isset($lesson['membership_ridingFee']) ? intval($lesson['membership_ridingFee']) : 0;
                       $times = isset($lesson['membership_time']) ? intval($lesson['membership_time']) : 0;
 
                       // $title と $fee と $monthly_fee が有効な場合のみ表示
@@ -275,7 +275,7 @@
             $has_valid_lessons = false;
             foreach ($lessons as $lesson) {
               $title = isset($lesson['visitor_lesson']) ? esc_html($lesson['visitor_lesson']) : '';
-              $fee = isset($lesson['riding_fee']) ? intval($lesson['riding_fee']) : 0;
+              $fee = isset($lesson['visitor_ridingFee']) ? intval($lesson['visitor_ridingFee']) : 0;
               $times = isset($lesson['visitor_time']) ? intval($lesson['visitor_time']) : 0;
 
               // ここで $title と $fee と $times が有効かを確認
@@ -353,7 +353,7 @@
                     <!-- データ -->
                     <?php foreach ($lessons as $lesson) :
                       $title = isset($lesson['visitor_lesson']) ? esc_html($lesson['visitor_lesson']) : '';
-                      $fee = isset($lesson['riding_fee']) ? intval($lesson['riding_fee']) : 0;
+                      $fee = isset($lesson['visitor_ridingFee']) ? intval($lesson['visitor_ridingFee']) : 0;
                       $times = isset($lesson['visitor_time']) ? intval($lesson['visitor_time']) : 0;
 
                       // $title と $fee と $monthly_fee が有効な場合のみ表示

@@ -2,8 +2,7 @@
 
 .submit-button {
   margin: auto;
-  width: rem(206);
-  padding: rem(8) rem(113) rem(17) rem(53);
+  width: rem(204);
   border: 1px solid #9a9a9a;
   border-radius: 100vh;
   background-color: $base;
@@ -15,11 +14,11 @@
   content: '';
   border: 1px solid #9a9a9a;
   background-color: #9a9a9a;
-  height: calc(100% + rem(2));
-  width: calc(100% + rem(2));
+  height: calc(100%);
+  width: calc(100%);
   position: absolute;
-  left: rem(-4);
-  top: rem(-6);
+  left: rem(-3);
+  top: rem(-3);
   border-radius: 100vh;
   z-index: -1;
 }
@@ -28,6 +27,7 @@
   font-family: $english-family;
   font-size: rem(16);
   color: #cdcdcd;
+  padding: rem(10) rem(113) rem(20) rem(53);
   transition: color 1s;
 }
 

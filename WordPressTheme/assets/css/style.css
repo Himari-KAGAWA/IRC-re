@@ -433,7 +433,7 @@ a {
 	content: "";
 	height: 0.0625rem;
 	position: absolute;
-	right: -5.125rem;
+	right: -5.375rem;
 	top: 50%;
 	transform: translateY(calc(-50% - 0.3125rem)) rotate(42deg);
 	transition: background-color 0.3s ease 0s;
@@ -445,7 +445,7 @@ a {
 	content: "";
 	height: 0.0625rem;
 	position: absolute;
-	right: -5rem;
+	right: -5.25rem;
 	top: calc(50% - 0.125rem);
 	transform: translateY(-50%);
 	transition: background-color 0.3s ease 0s;
@@ -662,7 +662,9 @@ a {
 }
 
 .card-01__img img {
-	height: auto;
+	-o-object-fit: cover;
+	height: 100%;
+	object-fit: cover;
 	width: 100%;
 }
 
@@ -840,7 +842,7 @@ a {
 	font-size: 1rem;
 	font-weight: 600;
 	line-height: 1.08;
-	margin-top: 0.2125rem;
+	margin-top: 0.25rem;
 	padding-bottom: 0.125rem;
 }
 
@@ -854,6 +856,7 @@ a {
 	-o-object-fit: cover;
 	height: 100%;
 	object-fit: cover;
+	width: 100%;
 }
 
 .card-03__content {
@@ -1491,10 +1494,10 @@ a {
 	font-family: "BioRhyme", serif;
 	font-size: 1rem;
 	margin: auto;
-	padding: 0.75rem 6.4375rem 0.9375rem 6.4375rem;
+	padding: 0.75rem 7.125rem 0.9375rem 5.375rem;
 	position: relative;
 	transition: color 0.3s;
-	width: 12.875rem;
+	width: 12.625rem;
 	z-index: 1;
 }
 
@@ -1510,11 +1513,11 @@ a {
 	cursor: pointer;
 	height: calc(100% + 0.125rem);
 	left: -0.1875rem;
-	padding-left: 2.5rem;
+	padding-left: 2rem;
 	padding-top: 0.8125rem;
 	position: absolute;
 	text-align: left;
-	top: -0.34375rem;
+	top: -0.28125rem;
 	transition: all 1s;
 	width: inherit;
 }
@@ -2238,16 +2241,6 @@ page-about .about__contents--page {
 	margin-top: 1.5rem;
 }
 
-.page-contact__form-wrapper--error {
-	margin-top: 2.4375rem;
-}
-
-.page-contact__error-message {
-	margin: auto;
-	max-width: 14rem;
-	width: 100%;
-}
-
 .page-contact__error-message p {
 	color: #e65b20;
 	font-size: 0.875rem;
@@ -2277,7 +2270,7 @@ page-about .about__contents--page {
 	content: "";
 	display: block;
 	height: 1.375rem;
-	left: -1.875rem;
+	left: -2rem;
 	position: absolute;
 	top: 0;
 	transition: 0.3s;
@@ -2312,6 +2305,7 @@ page-about .about__contents--page {
 	display: none !important;
 }
 
+.page-contact .wpcf7-not-valid input[type=checkbox],
 .page-contact textarea.wpcf7-not-valid,
 .page-contact input[type=text].wpcf7-not-valid,
 .page-contact input[type=tel].wpcf7-not-valid,
@@ -2332,9 +2326,49 @@ page-about .about__contents--page {
 	color: #f7f4f2;
 }
 
-.page-contact .wpcf7-not-valid input[type=checkbox] {
+.page-contact .wpcf7-not-valid input[type=checkbox]:hover,
+.page-contact textarea.wpcf7-not-valid:hover,
+.page-contact input[type=text].wpcf7-not-valid:hover,
+.page-contact input[type=tel].wpcf7-not-valid:hover,
+.page-contact input[type=email].wpcf7-not-valid:hover,
+.page-contact .wpcf7-not-valid input[type=checkbox]:focus,
+.page-contact textarea.wpcf7-not-valid:focus,
+.page-contact input[type=text].wpcf7-not-valid:focus,
+.page-contact input[type=tel].wpcf7-not-valid:focus,
+.page-contact input[type=email].wpcf7-not-valid:focus {
+	box-shadow: none;
+}
+
+.page-contact .wpcf7 form.invalid .wpcf7-response-output {
+	border: none;
+	color: #c94800;
+	font-family: "Zen Old Mincho", serif;
+	font-size: 0.875rem;
+	line-height: 20.27px;
+	margin: 0 auto;
+	padding: 0 0 2rem 0;
+	width: 100%;
+}
+
+.page-contact .wpcf7 form.spam .wpcf7-response-output {
+	border: none;
+	color: #c94800;
+	font-family: Noto Sans JP;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20.27px;
+	margin-bottom: 2.5rem;
+	text-align: center;
+}
+
+.page-contact input[type=checkbox]#form-privacy.is-error {
 	background-color: rgba(230, 91, 32, 0.2);
 	border: 0.125rem solid #3e1300;
+}
+
+.page-contact input[type=checkbox]#form-privacy.is-error:checked {
+	background: #f7f4f2;
+	border: solid 0.0625rem #e65b20;
 }
 
 .page-faq__inner.inner {
@@ -2484,10 +2518,13 @@ page-about .about__contents--page {
 	aspect-ratio: 320/213;
 	margin-top: 0.5rem;
 	overflow: hidden;
+	width: 100%;
 }
 
 .page-information__img img {
-	height: auto;
+	-o-object-fit: cover;
+	height: 100%;
+	object-fit: cover;
 	width: 100%;
 }
 
@@ -2733,11 +2770,6 @@ page-about .about__contents--page {
 	width: 100%;
 }
 
-.pagination {
-	margin: 0 auto;
-	width: 100%;
-}
-
 .pagination .wp-pagenavi {
 	display: flex;
 	gap: 0.75rem;
@@ -2837,8 +2869,8 @@ page-about .about__contents--page {
 
 .pagination--detail {
 	display: flex;
-	justify-content: space-between;
-	max-width: 9.875rem;
+	gap: 5.125rem;
+	justify-content: center;
 }
 
 .pagination--detail .previouspostslink::before {
@@ -2847,6 +2879,11 @@ page-about .about__contents--page {
 
 .pagination--detail .nextpostslink::before {
 	transform: translateX(-0.1875rem) rotate(-45deg);
+}
+
+.pagination--detail .nextpostslink,
+.pagination--detail .previouspostslink {
+	margin: 0;
 }
 
 .pc-nav {
@@ -3553,9 +3590,8 @@ page-about .about__contents--page {
 	border: 1px solid #9a9a9a;
 	border-radius: 100vh;
 	margin: auto;
-	padding: 0.5rem 7.0625rem 1.0625rem 3.3125rem;
 	position: relative;
-	width: 12.875rem;
+	width: 12.75rem;
 	z-index: 1;
 }
 
@@ -3564,11 +3600,11 @@ page-about .about__contents--page {
 	border: 1px solid #9a9a9a;
 	border-radius: 100vh;
 	content: "";
-	height: calc(100% + 0.125rem);
-	left: -0.25rem;
+	height: 100%;
+	left: -0.1875rem;
 	position: absolute;
-	top: -0.375rem;
-	width: calc(100% + 0.125rem);
+	top: -0.1875rem;
+	width: 100%;
 	z-index: -1;
 }
 
@@ -3576,6 +3612,7 @@ page-about .about__contents--page {
 	color: #cdcdcd;
 	font-family: "BioRhyme", serif;
 	font-size: 1rem;
+	padding: 0.625rem 7.0625rem 1.25rem 3.3125rem;
 	transition: color 1s;
 }
 
@@ -4172,7 +4209,7 @@ html {
 
 .card-03__title {
 	font-size: 1.5rem;
-	margin-top: 0.4rem;
+	margin-top: 0.5rem;
 }
 
 .card-03__img {
@@ -4671,7 +4708,6 @@ html {
 .page-campaign__card-items {
 	gap: 5rem 2.5rem;
 	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
 	width: 100%;
 }
 
@@ -4784,16 +4820,17 @@ html {
 	margin-top: 2.5rem;
 }
 
-.page-contact__error-message {
-	max-width: 21.875rem;
-}
-
 .page-contact__error-message p {
 	margin-left: 0.375rem;
 }
 
 .page-contact input[type=checkbox]#form-privacy {
 	left: -2.4375rem;
+}
+
+.page-contact .wpcf7 form.invalid .wpcf7-response-output {
+	max-width: 25rem;
+	text-align: center;
 }
 
 .page-faq__inner.inner {
@@ -5072,7 +5109,10 @@ html {
 }
 
 .price__img img {
+	-o-object-fit: cover;
+	height: 100%;
 	max-width: 1033px;
+	object-fit: cover;
 }
 
 .price__items {

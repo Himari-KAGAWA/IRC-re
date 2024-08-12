@@ -361,20 +361,6 @@
   }
 }
 
-.page-contact__form-wrapper--error {
-  margin-top: rem(39);
-}
-
-// errorメッセージ
-.page-contact__error-message {
-  max-width: rem(224);
-  width: 100%;
-  margin: auto;
-  @include mq('md') {
-    max-width: rem(350);
-  }
-}
-
 .page-contact__error-message p {
   text-align: left;
   color: $main;
@@ -411,7 +397,7 @@
     display: block;
     width: rem(22);
     height: rem(22);
-    left: rem(-30);
+    left: rem(-32);
     position: absolute;
     top: 0;
     transition: 0.3s;
@@ -454,11 +440,12 @@
     display: none !important;
   }
 
-  //////////////////////////////
-  // 必須項目未入力時のスタイル
-  //////////////////////////////
+  /////////////////////////////////////////////
+  // 必須項目未入力時のバリデーションスタイル
+  /////////////////////////////////////////////
 
   // インプットエリアのスタイル
+  .wpcf7-not-valid input[type='checkbox'],
   textarea.wpcf7-not-valid,
   input[type='text'].wpcf7-not-valid,
   input[type='tel'].wpcf7-not-valid,
@@ -474,8 +461,55 @@
     color: $base;
   }
 
-  .wpcf7-not-valid input[type="checkbox"] {
+  // ホバー・フォーカススタイル
+  .wpcf7-not-valid input[type='checkbox']:hover,
+  textarea.wpcf7-not-valid:hover,
+  input[type='text'].wpcf7-not-valid:hover,
+  input[type='tel'].wpcf7-not-valid:hover,
+  input[type='email'].wpcf7-not-valid:hover,
+  .wpcf7-not-valid input[type='checkbox']:focus,
+  textarea.wpcf7-not-valid:focus,
+  input[type='text'].wpcf7-not-valid:focus,
+  input[type='tel'].wpcf7-not-valid:focus,
+  input[type='email'].wpcf7-not-valid:focus {
+    box-shadow: none;
+  }
+
+  // 必須項目未入力時のエラーメッセージのスタイル
+  .wpcf7 form.invalid .wpcf7-response-output {
+    border: none;
+    font-family: $base-font-family;
+    font-size: rem(14);
+    color: #c94800;
+    line-height: 20.27px;
+    width: 100%;
+    padding: 0 0 rem(32) 0;
+    margin: 0 auto;
+    @include mq('md') {
+      max-width: rem(400);
+      text-align: center;
+    }
+  }
+
+  .wpcf7 form.spam .wpcf7-response-output {
+    margin-bottom: 2.5rem;
+    border: none;
+    font-family: Noto Sans JP;
+    color: #c94800;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.27px;
+    text-align: center;
+  }
+
+  // 個人情報取り扱いのバリエーションスタイル
+  input[type='checkbox']#form-privacy.is-error {
     border: rem(2) solid $font;
     background-color: rgba(230, 91, 32, 0.2);
+  }
+
+  input[type='checkbox']#form-privacy.is-error:checked {
+    background: $base;
+    border: solid rem(1) $main;
   }
 }
