@@ -5,14 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no" />
-  <!-- noindex -->
-  <meta name="robots" content="noindex" />
   <!-- meta情報 -->
 
   <?php wp_head(); ?>
 </head>
 
-<body <?php if (!is_home()) { body_class(''); } ?>>
+<body <?php if (!is_home()) {
+        body_class('');
+      } ?>>
 
   <!-- header -->
   <header class="header <?php if (is_404()) {
