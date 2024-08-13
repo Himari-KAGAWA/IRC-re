@@ -299,7 +299,7 @@
                   <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
                     <!-- キャンペーンカード -->
                     <div class="page-sidebar__campaign-card card-01">
-                      <a href="<?php echo esc_url(get_permalink()); ?>" class="card-01__link">
+                      <a href="<?php echo esc_url(home_url('/campaign')); ?>" class="card-01__link">
                         <!-- サムネイル画像 -->
                         <div class="card-01__img">
                           <?php if (has_post_thumbnail()) : ?>

@@ -3,7 +3,7 @@
 <main class="main">
   <div class="main__lower-image wow fadeInUp"></div>
   <!-- 下層ページメインビュー -->
-  <section class="sub-mv sub-mv__bg sub-mv__bg--about wow fadeIn" data-wow-duration="1s">
+  <section class="sub-mv sub-mv__bg sub-mv__bg--about wow fadeIn">
     <div class="sub-mv_inner">
       <div class="sub-mv__header">
         <h1 class="sub-mv__title">about us</h1>

@@ -513,3 +513,12 @@
     border: solid rem(1) $main;
   }
 }
+
+// Google reCAPTCHAの使用表示
+.page-contact__recaptcha {
+  font-family: $english-family_2nd;
+  font-size: rem(12);
+  color: $font;
+  margin-top: rem(40);
+  text-align: center;
+}

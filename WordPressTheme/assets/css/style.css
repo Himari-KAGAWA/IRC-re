@@ -170,6 +170,10 @@ a {
 	transition: opacity 0.3s;
 }
 
+.grecaptcha-badge {
+	visibility: hidden;
+}
+
 .top-about {
 	margin-top: 5.0625rem;
 }
@@ -2369,6 +2373,14 @@ page-about .about__contents--page {
 .page-contact input[type=checkbox]#form-privacy.is-error:checked {
 	background: #f7f4f2;
 	border: solid 0.0625rem #e65b20;
+}
+
+.page-contact__recaptcha {
+	color: #3e1300;
+	font-family: "Lora", serif;
+	font-size: 0.75rem;
+	margin-top: 2.5rem;
+	text-align: center;
 }
 
 .page-faq__inner.inner {

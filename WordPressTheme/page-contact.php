@@ -31,6 +31,13 @@
           <?php echo do_shortcode('[contact-form-7 id="aa21727" title="お問合せ"]'); ?>
 
         </div>
+        <!-- Google reCAPTCHA表示 -->
+        <div class="page-contact__recaptcha">
+          This site is protected by reCAPTCHA and the Google
+          <br class="u-mobile">
+          <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+          <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+        </div>
       </div>
     </div>
   </div>

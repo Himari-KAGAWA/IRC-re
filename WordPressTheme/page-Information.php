@@ -2,8 +2,8 @@
 
 <main class="main">
   <div class="main__lower-image wow fadeInUp"></div>
-  <section
-    class="sub-mv sub-mv__bg sub-mv__bg--info wow fadeIn">
+  <!-- 下層ページメインビュー -->
+  <section class="sub-mv sub-mv__bg sub-mv__bg--info wow fadeIn">
     <div class="sub-mv_inner">
       <div class="sub-mv__header">
         <h1 class="sub-mv__title sub-mv__title--info">Information</h1>
