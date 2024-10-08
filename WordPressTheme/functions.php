@@ -221,7 +221,7 @@ function custom_posts_per_page($query)
 add_action('pre_get_posts', 'custom_posts_per_page');
 
 
-/*------------------------------------------
+/*-----------------------------------------
 footer：自動で追記されるクラス名を削除
 /*----------------------------------------*/
 function remove_body_class_from_home_page($classes)
@@ -280,9 +280,9 @@ function custom_enter_placeholder($text)
 add_filter('write_your_story', 'custom_enter_placeholder', 10, 2);
 
 
-/*---------------------------------------
-Contact Form 7で自動挿入されるPタグ、brタグを削除
-/*--------------------------------------*/
+/*-----------------------------------------------
+ContactForm 7で自動挿入されるPタグ、brタグを削除
+/*----------------------------------------------*/
 add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
 function wpcf7_autop_return_false() {
   return false;
