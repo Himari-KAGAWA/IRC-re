@@ -3,12 +3,12 @@
 
   <!-- contactセクション -->
   <section id="contact" class="contact section">
-    <div class="contact__inner inner wow fadeIn" data-wow-duration="1s">
+    <div class="contact__inner inner js-in-view fade-in">
       <div class="contact__wrapper">
-        <div class="contact__info wow fadeInUp">
+        <div class="contact__info js-in-view fade-in-up">
           <div class="contact__logo">
             <div class="contact__logo-img">
-              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/logo-contact.png" alt="今浪乗馬クラブ" width="174" height="66" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/logo-contact.png" alt="今浪乗馬クラブ" width="174" height="66" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="contact__access">
@@ -43,7 +43,7 @@
             </div>
           </div>
         </div>
-        <div class="contact__inquiry wow fadeInUp">
+        <div class="contact__inquiry js-in-view fade-in-up">
           <div class="contact__header section-header">
             <div class="section-header__engtitle section-header__engtitle--contact">
               contact
@@ -61,8 +61,8 @@
         </div>
       </div>
     </div>
-    <div class="contact__img-icon wow fadeInUp">
-      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/horse-contact-illust.png" alt="馬の足跡風に並んだ蹄鉄のイラスト" width="225" height="160" />
+    <div class="contact__img-icon js-in-view fade-in-up">
+      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/horse-contact-illust.png" alt="馬の足跡風に並んだ蹄鉄のイラスト" width="225" height="160" loading="lazy" decoding="async">
     </div>
   </section>
   <!-- /contactセクション -->
@@ -76,11 +76,11 @@
 <!-- footerセクション -->
 <footer class="footer section">
   <div class="footer__inner inner">
-    <div class="footer__wrapper footer-nav wow fadeIn" data-wow-duration="1s">
+    <div class="footer__wrapper footer-nav js-in-view fade-in">
       <div class="footer-nav__logo">
         <picture>
           <source srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/pc/logo-footer_pc.png" media="(min-width: 768px)" />
-          <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/logo-footer_sp.png" alt="今浪乗馬クラブ" width="140" height="50" />
+          <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/logo-footer_sp.png" alt="今浪乗馬クラブ" width="140" height="50" loading="lazy" decoding="async">
         </picture>
 
         <?php
@@ -97,7 +97,7 @@
             <?php if ($facebook_link) : ?>
               <li class="footer-nav__icon">
                 <a href="<?php echo esc_url($facebook_link); ?>" target="_blank">
-                  <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/FacebookLogo.png" alt="facebookアイコン" width="24" height="24" />
+                  <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/FacebookLogo.png" alt="facebookアイコン" width="24" height="24" loading="lazy" decoding="async">
                 </a>
               </li>
             <?php endif; ?>
@@ -105,7 +105,7 @@
             <?php if ($instagram_link) : ?>
               <li class="footer-nav__icon">
                 <a href="<?php echo esc_url($instagram_link); ?>" target="_blank">
-                  <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/InstagramLogo.png" alt="instagramアイコン" width="24" height="24" />
+                  <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/InstagramLogo.png" alt="instagramアイコン" width="24" height="24" loading="lazy" decoding="async">
                 </a>
               </li>
             <?php endif; ?>
@@ -113,7 +113,7 @@
             <?php if ($x_link) : ?>
               <li class="footer-nav__icon footer-nav__icon--x">
                 <a href="<?php echo esc_url($x_link); ?>" target="_blank">
-                  <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/x-icon.svg" alt="<?php echo esc_attr('Xアイコン'); ?>" width="24" height="24" />
+                  <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/x-icon.svg" alt="<?php echo esc_attr('Xアイコン'); ?>" width="24" height="24" loading="lazy" decoding="async">
                 </a>
               </li>
             <?php endif; ?>

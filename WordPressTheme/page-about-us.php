@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
 <main class="main">
-  <div class="main__lower-image wow fadeInUp"></div>
+  <div class="main__lower-image js-in-view fade-in-up"></div>
   <!-- 下層ページメインビュー -->
-  <section class="sub-mv sub-mv__bg sub-mv__bg--about wow fadeIn">
+  <section class="sub-mv sub-mv__bg sub-mv__bg--about js-in-view fade-in">
     <div class="sub-mv_inner">
       <div class="sub-mv__header">
         <h1 class="sub-mv__title">about us</h1>
@@ -21,23 +21,23 @@
     <div class="page__inner">
       <div class="page__content page-about">
         <div class="page-about__inner inner">
-          <div class="page-about__img-wrapper wow fadeIn">
+          <div class="page-about__img-wrapper js-in-view fade-in">
             <div class="page-about__img-left">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-bg.jpg" alt="鐙と鞍の画像" />
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-bg.jpg" alt="鐙と鞍の画像" loading="lazy" decoding="async">
             </div>
             <div class="page-about__img-right">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-bg_2.jpg" alt="こちらを見つめる黒い馬の画像" />
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-bg_2.jpg" alt="こちらを見つめる黒い馬の画像" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="page-about__contents">
-            <div class="page-about__lead wow fadeIn">
+            <div class="page-about__lead js-in-view fade-in">
               We're
               <br />
               happy
               <br />
               together.
             </div>
-            <div class="page-about__copy wow fadeIn">
+            <div class="page-about__copy js-in-view fade-in">
               <p class="page-about__text u-desktop">
                 私たちのクラブでは、馬との信頼関係を築くことを最も大切にしています。<br>言葉を話さない、自分とは違う意思を持つ相手と心を通わせることで得られる喜びは、他に代えがたいものです。<br>馬との触れ合いを通じて、心身ともに豊かな時間を過ごしていただけるよう、私たちがサポートします。
               </p>
@@ -51,8 +51,8 @@
             <br>
             馬との触れ合いを通じて、心身ともに豊かな時間を過ごしていただけることを願っています。
           </p>
-          <div class="page-about__img-icon u-desktop wow fadeInUp">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/horse-contact-illust.png" alt="馬の足跡風に並んだ蹄鉄" width="225" height="160" />
+          <div class="page-about__img-icon u-desktop js-in-view fade-in-up">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/horse-contact-illust.png" alt="馬の足跡風に並んだ蹄鉄" width="225" height="160" loading="lazy" decoding="async">
           </div>
         </div>
 
@@ -62,7 +62,7 @@
         <?php if (!empty($imgGroup)) : ?>
           <section class="page-galley top-page-gallery">
             <div class="page-galley__inner inner">
-              <div class="page-galley__header section-header wow fadeIn" data-wow-duration="1.5s">
+              <div class="page-galley__header section-header js-in-view fade-in">
                 <div class="section-header__engtitle">gallery</div>
                 <h2 class="section-header__jatitle">フォト</h2>
               </div>
@@ -77,8 +77,8 @@
                     $url = $img_data[0];
                     // altテキストが未入力の場合は代替テキストを表示
                     $img_alt = !empty($imgItem['gallery_alt']) ? esc_attr($imgItem['gallery_alt']) : 'ギャラリー画像'; ?>
-                    <div class="page-gallery__item js-modal__trigger wow fadeIn">
-                      <img src="<?php echo esc_url($url); ?>" alt="<?php echo $img_alt; ?>" width="345" height="523" />
+                    <div class="page-gallery__item js-modal__trigger js-in-view fade-in">
+                      <img src="<?php echo esc_url($url); ?>" alt="<?php echo $img_alt; ?>" width="345" height="523" loading="lazy" decoding="async">
                     </div>
                   <?php endforeach; ?>
                 </div>

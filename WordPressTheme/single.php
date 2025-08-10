@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
 <main class="main">
-  <div class="main__lower-image wow fadeInUp"></div>
+  <div class="main__lower-image js-in-view fade-in-up"></div>
   <!-- 下層ページメインビュー -->
-  <section class="sub-mv sub-mv__bg sub-mv__bg--blog wow fadeIn">
+  <section class="sub-mv sub-mv__bg sub-mv__bg--blog js-in-view fade-in">
     <div class="sub-mv_inner">
       <div class="sub-mv__header">
         <h1 class="sub-mv__title sub-mv__title--blog">blog</h1>
@@ -19,7 +19,7 @@
   <!-- page-contents -->
   <div class="page-2rows top-page-2rows">
     <div class="page-2rows__inner inner">
-      <div class="page-2rows__wrapper wow fadeIn">
+      <div class="page-2rows__wrapper js-in-view fade-in">
 
         <!-- page-main -->
         <?php if (have_posts()) : ?>
@@ -35,7 +35,7 @@
                 <?php if (has_post_thumbnail()) : ?>
                   <?php the_post_thumbnail(); ?>
                 <?php else : ?>
-                  <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>" width="301" height="201"> <!-- サムネイルがない場合はno-img画像を表示 -->
+                  <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>" width="301" height="201" loading="lazy" decoding="async"> <!-- サムネイルがない場合はno-img画像を表示 -->
                 <?php endif; ?>
               </div>
               <!-- 投稿の内容を表示 -->

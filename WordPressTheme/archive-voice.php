@@ -3,8 +3,8 @@
 <!-- 下層ページメインビュー -->
 
 <main class="main">
-  <div class="main__lower-image wow fadeInUp"></div>
-  <section class="sub-mv sub-mv__bg sub-mv__bg--voice wow fadeIn">
+  <div class="main__lower-image js-in-view fade-in-up"></div>
+  <section class="sub-mv sub-mv__bg sub-mv__bg--voice js-in-view fade-in">
     <div class="sub-mv_inner">
       <div class="sub-mv__header">
         <h1 class="sub-mv__title sub-mv__title--blog">voice</h1>
@@ -22,7 +22,7 @@
     <div class="page__inner inner">
       <div class="page__content page-voice">
         <div class="page-voice__nav category-list">
-          <ul class="category-list__items wow fadeIn">
+          <ul class="category-list__items js-in-view fade-in">
 
             <li class="category-list__item">
               <!-- ホームページの/voiceページへのリンク -->
@@ -56,7 +56,7 @@
             <!-- 投稿がある間、ループを開始 -->
             <?php while (have_posts()) : the_post(); ?> <!-- whileループ内でthe_post()を直接使用 -->
               <!-- お客様の声カード -->
-              <div class="voice-cards__item card-03 wow fadeIn">
+              <div class="voice-cards__item card-03 js-in-view fade-in">
                 <div class="card-03__header">
                   <div class="card-03__left">
                     <div class="card-03__attribute">
@@ -103,7 +103,7 @@
                       <?php the_post_thumbnail(); // 投稿にサムネイルがある場合は表示
                       ?>
                     <?php else : ?>
-                      <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>"> <!-- サムネイルがない場合はデフォルト画像を表示 -->
+                      <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>" loading="lazy" decoding="async"> <!-- サムネイルがない場合はデフォルト画像を表示 -->
                     <?php endif; ?>
                   </div>
                 </div>

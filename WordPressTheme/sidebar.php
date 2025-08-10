@@ -2,7 +2,7 @@
         <div class="page-sidebar top-sidebar">
           <aside class="page-sidebar__contents">
             <!-- 人気記事 -->
-            <div class="page-sidebar__popular-articles wow fadeIn">
+            <div class="page-sidebar__popular-articles js-in-view fade-in">
               <div class="page-sidebar__title sidebar-header">
                 <h2 class="sidebar-header__title">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 50px; height: 50px; opacity: 1" xml:space="preserve">
@@ -80,9 +80,9 @@
                       <a href="<?php echo esc_url(get_permalink($popular_post->id)); ?>" class="card-02__link">
                         <div class="card-02__img">
                           <?php if (has_post_thumbnail($popular_post->id)) : ?>
-                            <img src="<?php echo esc_url(get_the_post_thumbnail_url($popular_post->id)); ?>" alt="人気記事のサムネイル">
+                            <img src="<?php echo esc_url(get_the_post_thumbnail_url($popular_post->id)); ?>" alt="人気記事のサムネイル" loading="lazy" decoding="async">
                           <?php else : ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="No image">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="No image"loading="lazy" decoding="async">
                           <?php endif; ?>
                         </div>
                         <div class="card-02__header">
@@ -116,7 +116,7 @@
             </div>
 
             <!-- 口コミ -->
-            <div class="page-sidebar__comment top-sidebar wow fadeIn">
+            <div class="page-sidebar__comment top-sidebar js-in-view fade-in">
               <div class="page-sidebar__title top-sidebar__title sidebar-header">
                 <h2 class="sidebar-header__title">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 50px; height: 50px; opacity: 1" xml:space="preserve">
@@ -188,7 +188,7 @@
                           <?php if (has_post_thumbnail()) : ?>
                             <?php the_post_thumbnail(); ?>
                           <?php else : ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>" loading="lazy" decoding="async">
                           <?php endif; ?>
                         </div>
                       </div>
@@ -232,7 +232,7 @@
             </div>
 
             <!-- キャンペーン -->
-            <div class="page-sidebar__campaign top-sidebar wow fadeIn">
+            <div class="page-sidebar__campaign top-sidebar js-in-view fade-in">
               <div class="page-sidebar__title top-sidebar__title--c sidebar-header">
                 <h2 class="sidebar-header__title">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 50px; height: 50px; opacity: 1" xml:space="preserve">
@@ -305,7 +305,7 @@
                           <?php if (has_post_thumbnail()) : ?>
                             <?php the_post_thumbnail(); ?>
                           <?php else : ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>" loading="lazy" decoding="async">
                           <?php endif; ?>
                         </div>
                         <div class="card-01__body">
@@ -378,7 +378,7 @@
             </div>
 
             <!-- アーカイブ -->
-            <div class="page-sidebar__archive top-sidebar wow fadeIn">
+            <div class="page-sidebar__archive top-sidebar js-in-view fade-in">
               <div class="page-sidebar__title top-sidebar__title-a sidebar-header">
                 <h2 class="sidebar-header__title">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 50px; height: 50px; opacity: 1" xml:space="preserve">

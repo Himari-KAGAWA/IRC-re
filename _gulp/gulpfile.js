@@ -23,7 +23,10 @@ const themeName = "WordPressTheme"; // WordPress theme name
 
 // 読み込み先
 const srcPath = {
-  css: "../src/sass/**/*.scss",
+  css: [
+    "../src/sass/**/*.scss", // Sass全体
+    "../src/sass/module/**/*.scss" // moduleフォルダ内も明示的に追加
+  ],
   js: "../src/js/**/*",
   img: "../src/images/**/*",
   html: ["../src/**/*.html", "!./node_modules/**"],

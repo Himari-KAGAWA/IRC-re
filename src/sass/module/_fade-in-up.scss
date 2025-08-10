@@ -1,0 +1,17 @@
+@use "global" as *;
+
+/*-----------------------------------------------
+  表示させたい要素に js-in-view fade-in-up を追記する
+------------------------------------------------*/
+
+/* スクロールアニメーション：下からふわっと出現 */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in-up.is-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}

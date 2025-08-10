@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 <main class="main">
-  <div class="main__lower-image wow fadeInUp"></div>
-  <section class="sub-mv sub-mv__bg sub-mv__bg--faq wow fadeIn">
+  <div class="main__lower-image js-in-view fade-in-up"></div>
+  <section class="sub-mv sub-mv__bg sub-mv__bg--faq js-in-view fade-in">
     <div class="sub-mv_inner">
       <div class="sub-mv__header">
         <h1 class="sub-mv__title sub-mv__title--upper">faq</h1>
@@ -17,7 +17,7 @@
   <!-- page-contents -->
   <div class="page top-page">
     <div class="page__content page-faq">
-      <div class="page-faq__inner inner wow fadeIn">
+      <div class="page-faq__inner inner js-in-view fade-in">
         <dl class="page-faq__lists faq-items">
 
           <!-- Q&A呼出し -->

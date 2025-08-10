@@ -10,7 +10,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body <?php if (!is_home()) {
+<body id="top" <?php if (!is_home()) {
         body_class('');
       } ?>>
 
@@ -23,7 +23,7 @@
         <a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo-link">
           <picture>
             <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc/logo-header_pc.png" media="(min-width:767px)" />
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo-header_sp.png" alt="今浪乗馬クラブ" width="152" height="58" />
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo-header_sp.png" alt="今浪乗馬クラブ" width="152" height="58" loading="lazy" decoding="async">
           </picture>
         </a>
       </h1>
@@ -92,7 +92,7 @@
         <div class="sp-nav__header">
           <div class="sp-nav__logo">
             <a href="<?php echo esc_url(home_url('/')); ?>">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo-header_sp.png" alt="今浪乗馬クラブ" width="152" height="58" />
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo-header_sp.png" alt="今浪乗馬クラブ" width="152" height="58" loading="lazy" decoding="async">
             </a>
           </div>
         </div>

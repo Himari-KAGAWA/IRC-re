@@ -1,10 +1,15 @@
 'use strict';
 
+document.addEventListener("DOMContentLoaded", () => {
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 
+  // ========== GSAPプラグイン登録 ==========
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+
  // ========== ハンバーガーメニュー ==========
- $('.js-hamburger').on('click', function () {
+  $('.js-hamburger').on('click', function () {
   var $this = $(this);
   if ($this.hasClass('is-open') || $this.hasClass('is-active')) {
     $('.js-drawer-menu, .js-sp-nav').fadeOut();
@@ -17,12 +22,14 @@ jQuery(function ($) {
   }
 });
 
+
 // ========== ドロワーメニュー内リンクがクリックされたとき ==========
 $('.js-sp-nav a').click(function () {
   $('.js-hamburger').removeClass('is-active is-open');
   $('.js-sp-nav').fadeOut(300);
   $('body').removeClass('no-scroll'); // ナビ内のリンクがクリックされたらno-scrollクラスを外す
 });
+
 
 // ========== ドロワーメニューのリサイズに対応 ==========
 // ウィンドウがリサイズされたときのイベント
@@ -34,6 +41,7 @@ $(window).resize(function () {
     $('body').removeClass('no-scroll');
   }
 });
+
 
 // ========== swiper メインビュー ==========
 // メインビューのスライダー初期化
@@ -54,6 +62,10 @@ var mainViewSwiperSettings = {
 };
 // Swiperインスタンスの作成
 var mainViewSwiper = new Swiper('.js-mv-swiper', mainViewSwiperSettings);
+
+// 初期状態でスライダー止める
+mainViewSwiper.autoplay.stop();
+
 
 // ========== swiper キャンペーン ==========
 // スライダーの初期化
@@ -102,65 +114,86 @@ var setAriaLabels = function setAriaLabels() {
 // スライダー初期化の実行
 initCampaignSlider();
 
+
 // ========== スクロール検知＆to-topアイコン制御 ==========
-jQuery(document).ready(function ($) {
-  var toTop = $('.to-top');
-  var footer = $('footer');
-  var originalBottom = parseInt(toTop.css('bottom')); // 初期のbottom値を取得
-  $(window).on('scroll', function () {
-    var scrollPos = $(this).scrollTop();
-    var windowHeight = $(this).height();
-    if (scrollPos > 200) {
-      // スクロールが200px以上の場合
-      toTop.addClass('is-show');
-    } else {
-      // スクロールが200px以下の場合
-      toTop.removeClass('is-show');
-    }
-    if (scrollPos >= footer.offset().top - windowHeight) {
-      // フッターの近くに到達した場合
-      var newBottom = scrollPos + windowHeight - (footer.offset().top - originalBottom);
-      toTop.css('bottom', newBottom + 'px');
-    } else {
-      // フッターの近くに到達していない場合
-      toTop.css('bottom', originalBottom + 'px');
+// .to-top ボタン要素取得
+const toTop = document.querySelector('.to-top');
+// footer要素取得
+const footer = document.querySelector('footer');
+// CSSのbottom初期値を数値で取得
+const originalBottom = parseInt(getComputedStyle(toTop).bottom, 10);
+
+window.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY; // 現在のスクロール位置
+  const windowHeight = window.innerHeight; // ビューポート高さ
+  const footerTop = footer.getBoundingClientRect().top + scrollPos; // フッターのドキュメント上端位置
+
+  // 200px以上スクロールで表示
+  if (scrollPos > 200) {
+    toTop.classList.add('is-show');
+  } else {
+    toTop.classList.remove('is-show');
+  }
+
+  // フッターに到達した場合
+  if (scrollPos + windowHeight >= footerTop) {
+    // footerから10px上に止めるように計算
+    const overlap = scrollPos + windowHeight - footerTop + originalBottom;
+    gsap.to(toTop, {
+      duration: 0.3,
+      bottom: `${overlap}px`,
+      ease: "power2.out"
+    });
+  } else {
+    // フッター未到達時は元の位置
+    gsap.to(toTop, {
+      duration: 0.3,
+      bottom: `${originalBottom}px`,
+      ease: "power2.out"
+    });
+  }
+});
+
+
+// ========== スクロール位置でヘッダーの色変更（ScrollTrigger） ==========
+  const header = document.querySelector('.header');
+  /* .mvか.sub-mvどちらかをトリガーに どちらも無ければ処理しない */
+  const mv = document.querySelector('.mv') || document.querySelector('.sub-mv');
+  const headerHeight = header.offsetHeight;
+
+  if (mv) {
+    ScrollTrigger.create({
+      trigger: mv,
+      start: `bottom top+=${headerHeight}`,
+      onEnter: () => header.classList.add('is-color'),
+      onLeaveBack: () => header.classList.remove('is-color'),
+    });
+  }
+
+
+// ========== ページ内リンクのスムーススクロール（ScrollToPlugin） ==========
+const anchors = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+anchors.forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const targetId = anchor.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      gsap.to(window, {
+        duration: 1,
+        ease: 'power2.out',
+        scrollTo: {
+          y: targetElement,
+          offsetY: headerHeight,
+          autoKill: true,
+        }
+      });
     }
   });
 });
 
-// ========== ヘッダー色変更 ==========
-$(document).ready(function () {
-  // ヘッダークラス名付与
-  var header = $('.header');
-  // ヘッダーの高さ取得
-  var headerHeight = $('.header').height();
-  // メインビューの高さを取得（トップページと下層ページの両方に対応）
-  var mainVisualHeight = $('.mv').height();
-  var subMvHeight = $('.sub-mv').height();
-  var targetHeight = mainVisualHeight || subMvHeight; // main-visual がない場合、sub-mv の高さを使用
-  // メインビューの高さ - ヘッダーの高さ
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > targetHeight - headerHeight) {
-      // 指定px以上のスクロールでクラス名付与
-      header.addClass('is-color');
-    } else {
-      // クラス名が付いてたら削除
-      header.removeClass('is-color');
-    }
-  });
-});
-
-// ========== スムーススクロール ==========
-jQuery('a[href^="#"]').on('click', function (e) {
-  var speed = 600;
-  var id = jQuery(this).attr('href');
-  var target = jQuery('#' == id ? 'html' : id);
-  var position = jQuery(target).offset().top;
-  jQuery('html, body').animate({
-    scrollTop: position
-  }, speed, 'swing' // swing or linear
-  );
-});
 
     // ========== js-inview ==========
   //要素の取得とスピードの設定
@@ -194,6 +227,7 @@ jQuery('a[href^="#"]').on('click', function (e) {
     });
   });
 
+
   // ========== サイドバー：アコーディオン ==========
   $(document).ready(function () {
     $('.js-open').click(function () {
@@ -202,11 +236,13 @@ jQuery('a[href^="#"]').on('click', function (e) {
     });
   });
 
+
   // ========== FAQ：アコーディオン ==========
   $('.js-faq').on('click', function () {
     $(this).find('.js-faq-open').stop().slideToggle(300);
     $(this).toggleClass('is-open');
   });
+
 
   // ========== タブ切替 information ==========
   $(function () {
@@ -217,6 +253,8 @@ jQuery('a[href^="#"]').on('click', function (e) {
       $('.page-information__tabs .page-information__tab-panel').removeClass('is-active').eq(index).addClass('is-active'); //○番目のコンテンツのみを表示
     });
   });
+
+
   // ========== タブへダイレクトリンクの実装：information ==========
   $(function () {
     //リンクからハッシュを取得
@@ -241,6 +279,7 @@ jQuery('a[href^="#"]').on('click', function (e) {
       $('html, body').scrollTop(scrollTo); // スクロール実行
     }
   });
+
 
   // ========== モーダル：ギャラリー画像 ==========
   (function () {
@@ -299,6 +338,7 @@ jQuery('a[href^="#"]').on('click', function (e) {
     }
   })();
 
+
   // ========== タブ絞り込み：page-campaign,page-voice ==========
   $(function () {
     // 変数を要素をセット
@@ -328,8 +368,95 @@ jQuery('a[href^="#"]').on('click', function (e) {
     });
   });
 
-  // ========== WOWアニメーション ==========
-  new WOW().init();
+
+  // ========== スクロールアニメーション ==========
+var intersectionObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-in-view");
+    } else {
+      // 何度でも表示させる場合はコメントアウトを解除
+      // entry.target.classList.remove("is-in-view");
+    }
+  });
+});
+
+// IntersectionObserverを監視
+var InViewItems = document.querySelectorAll(".js-in-view");
+InViewItems.forEach(function (inViewItem) {
+  intersectionObserver.observe(inViewItem);
+});
+
+
+// ========== オープニングアニメーション ==========
+const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.05 });
+
+// 初期はCSSでセット済みなら .set は不要（残すなら保険としてOK）
+gsap.set('.opening__logoOrangeFx .logoMask--bottom', {
+  clipPath: 'inset(var(--splitY) 50% 0 50%)'
+});
+gsap.set('.opening__logoOrangeFx .logoMask--top', {
+  clipPath: 'inset(var(--splitY) 0 calc(100% - var(--splitY)) 0)'
+});
+
+// 1) 英文：中央1px → 左右いっぱいへ水平展開
+tl.to('.opening__logoOrangeFx .logoMask--bottom', {
+  clipPath: 'inset(var(--splitY) 0% 0 0%)', // ← すべて%で統一
+  duration: 1.55,
+  ease: 'power2.out'
+}, '+=0.12')
+
+// 2) 日本語：下からせり上げ
+tl.to('.opening__logoOrangeFx .logoMask--top', {
+  clipPath: 'inset(0% 0 calc(100% - var(--splitY)) 0)',
+  duration: 1.25,
+  ease: 'power3.out'
+}, '-=0.25')
+
+// 3) 左半分：下→上（スライドアップ風）
+.to('.opening__half--left', {
+  clipPath: 'inset(0% 50.1% 0% 0%)', // ← %統一
+  duration: 1.3,
+  ease: 'power3.out'
+}, '+=0.5')
+
+// 4) 右半分：下→上（※右を上から下へにしたいなら初期/終端値を逆に）
+.to('.opening__half--right', {
+  clipPath: 'inset(0% 0% 0% 49.1%)', // ← %統一
+  duration: 1.3,
+  ease: 'power3.out'
+}, '-=1.18') // 0.12秒遅れ（1.3 - 0.12 = 1.18 で重ね開始）
+
+// 5) オレンジロゴをフェードアウト
+// .to('.opening__logoOrange', {
+//   opacity: 0,
+//   duration: 0.4,
+//   ease: 'power1.out'
+// }, '-=0.8')
+
+// 6) 白抜きロゴをフェードイン
+.fromTo('.opening__logoWhite', {
+  display: 'block',
+  opacity: 0
+}, {
+  opacity: 1,
+  duration: 1.3,
+  ease: 'power2.out'
+}, '-=0.4')
+
+// 7) オープニング全体をフェードアウト → Swiper開始
+.to('.opening', {
+  opacity: 0,
+  duration: 1.15,
+  ease: 'power2.inOut',
+  delay: 0.2,
+  onComplete: () => {
+    document.querySelector('.opening').style.display = 'none';
+       // Swiper再始動
+      mainViewSwiper.autoplay.start();
+  }
+});
+
 
   // ========== タブ絞り込み用ダイレクトリンク ==========
   // $(document).ready(function () {
@@ -362,4 +489,5 @@ jQuery('a[href^="#"]').on('click', function (e) {
   //     intersectionObserver.observe(fadeInItem);
   //   });
   // }
+  });
 });

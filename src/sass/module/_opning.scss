@@ -1,0 +1,143 @@
+@use "global" as *;
+
+.opening {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999; // 表示最上位に
+}
+
+.opening__inner {
+  height: inherit;
+}
+
+.opening__screen {
+  width: inherit;
+  position: relative;
+}
+
+.opening__screen {
+  background-color: $white;
+  // display: none;
+}
+
+.opening__image {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: none; // ← 背景は子要素に任せる
+}
+
+.opening__half {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/common/mv-img_01.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: translateZ(0);    // ←1px隙間防止（Retina用）
+  @include mq('md') {
+    background-image: url('../images/common/pc/mv-img_pc01.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.opening__orangeBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+/* オレンジのロゴ */
+/* 調整しやすいように分割位置をCSS変数で管理（%でOK） */
+.opening__logoOrangeFx {
+  --splitY: 76%; /* 画像の“英文高さの開始位置”を%で。微調整してピッタリに */
+  position: relative;
+  width: clamp(rem(220), 28vw, rem(492));
+  aspect-ratio: 281 / 106; /* 元ロゴの比率に近づける。無ければ省略でも可 */
+  margin-inline: auto;
+  @include mq('md') {
+    aspect-ratio: 492 / 184;
+  }
+}
+
+/* 2枚とも同じ背景画像（＝同じ1枚のアセット） */
+.logoMask {
+  position: absolute;
+  inset: 0;
+  background: url('../images/common/title-mainC_SP.webp') center/contain no-repeat;
+  @include mq('md') {
+    background: url('../images/common/pc/title-mainC_PC.webp') center/contain no-repeat;
+  }
+}
+
+// cssで事前準備すると上手くいかないのでgsap.setで初期状態を指定するとOK
+/* --- 初期状態（全部隠す）→“英文だけ中央から左右に伸びる” --- */
+/* 下部（英文）だけを細いセンター幅で表示しておき、左右に広げる */
+.logoMask--bottom {
+  /* inset(上 右 下 左) */
+  /* 英文帯の“上端”を --splitY に固定。左右は最初 50% でセンター1px状態 */
+  // clip-path: inset(var(--splitY) 50% 0 50%);
+}
+
+/* --- 上部（日本語ロゴ）を“下から上に”見せる --- */
+.logoMask--top {
+  /* 初期は上から100%カット＝完全非表示。下端は（100%-splitY）だけ残す */
+  // clip-path: inset(var(--splitY) 0 calc(100% - var(--splitY)) 0);
+}
+
+/* 高DPIでの1pxスジ対策（おまじない） */
+.logoMask { transform: translateZ(0); will-change: clip-path; }
+
+/* ロゴ:白 */
+.opening__logoWhite {
+  display: block;
+  width: clamp(rem(220), 28vw, rem(492)); // ← オレンジと統一
+  aspect-ratio: 281 / 106; // ← モバイル用の元画像比率
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  @include mq('md') {
+    aspect-ratio: 492 / 184;
+  }
+}
+
+.opening__logoWhite img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.opening__screen,
+.opening__image {
+  height: 100vh;
+}
+
+/* アニメーション準備 */
+.opening__half--left {
+  clip-path: inset(100% 50.1% 0 0);
+}
+
+.opening__half--right {
+  clip-path: inset(0 0 100% 49.1%);
+}
+
+.opening__logoOrangeBox {
+  z-index: 1;
+}
+
+.opening__logoWhite {
+  display: none;
+  z-index: 20;
+}

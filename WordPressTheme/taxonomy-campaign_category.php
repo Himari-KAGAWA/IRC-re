@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
 <main class="main">
-  <div class="main__lower-image wow fadeInUp"></div>
+  <div class="main__lower-image js-in-view fade-in-up"></div>
   <!-- 下層ページメインビュー -->
-  <section class="sub-mv sub-mv__bg sub-mv__bg--campaign wow fadeIn">
+  <section class="sub-mv sub-mv__bg sub-mv__bg--campaign js-in-view fade-in">
     <div class="sub-mv_inner">
       <div class="sub-mv__header">
         <h1 class="sub-mv__title">campaign</h1>
@@ -21,7 +21,7 @@
     <div class="page__inner inner">
       <div class="page__content page-campaign">
         <div class="page-campaign__nav category-list">
-          <div class="category-list__tabs wow fadeIn">
+          <div class="category-list__tabs js-in-view fade-in">
             <ul class="category-list__items">
 
               <li class="category-list__item">
@@ -51,13 +51,13 @@
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>
 
-                <div class="page-campaign__card-item card-01 wow fadeIn">
+                <div class="page-campaign__card-item card-01 js-in-view fade-in">
                   <div class="card-01__link">
                     <div class="card-01__img">
                       <?php if (has_post_thumbnail()) : ?>
                         <?php the_post_thumbnail(); ?>
                       <?php else : ?>
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>">
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>" loading="lazy" decoding="async">
                       <?php endif; ?>
                     </div>
                     <div class="card-01__body card-01__body--page">

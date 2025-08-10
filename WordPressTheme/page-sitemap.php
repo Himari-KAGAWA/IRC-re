@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 <main class="main">
-  <div class="main__lower-image wow fadeIn"></div>
-  <section class="sub-mv sub-mv__bg sub-mv__bg--siteMap wow fadeIn">
+  <div class="main__lower-image js-in-view fade-in"></div>
+  <section class="sub-mv sub-mv__bg sub-mv__bg--siteMap js-in-view fade-in">
     <div class="sub-mv_inner">
       <div class="sub-mv__header">
         <h1 class="sub-mv__title sub-mv__title--siteMap">
@@ -21,7 +21,7 @@
   <div class="page top-page top-page--siteMap">
     <div class="page__icon"></div>
     <div class="page__inner inner">
-      <div class="page__content sitemap wow fadeIn">
+      <div class="page__content sitemap js-in-view fade-in">
         <div class="sitemap__content">
           <ul class="sitemap__items1">
             <li class="sitemap__item sitemap__item-bold">

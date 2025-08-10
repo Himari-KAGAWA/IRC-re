@@ -1,38 +1,76 @@
 <?php
 
 /*------------------------------------------
-CSS・JavaScript・font・swiperの設定
+CSS・JavaScript・font・swiper・GSAPの設定
 /*----------------------------------------*/
 function theme_enqueue_styles_and_scripts()
 {
 
+  // ===== CSS =====
   // Google Fonts
   wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=BioRhyme:wght@200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Zen+Old+Mincho&display=swap', array(), null);
 
-  // Swiper CSS
-  wp_enqueue_style('swiper-style', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.css', array(), null);
-
-  // WOW CSS
-  wp_enqueue_style('animate-style', get_template_directory_uri() . '/assets/css/animate.css', array(), null);
+  // Swiper(ver.8) CSS
+  wp_enqueue_style(
+    'swiper-css',
+    get_template_directory_uri() . '/assets/css/swiper-bundle.min.css',
+    array(),
+    null
+  );
 
   // メインスタイルシート
   wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/style.css', array(), null);
 
-  // jQuery
-  wp_enqueue_script('jquery-cdn', 'https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js', array(), null, true);
 
-  // Swiper JS
-  wp_enqueue_script('swiper-js', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js', array(), null, true);
+  // ===== JavaScript =====
+  // WordPress標準の jQuery を読み込む
+  wp_enqueue_script('jquery');
 
-  // inview JS
-  wp_enqueue_script('inview-js', get_template_directory_uri() . '/assets/js/jquery.inview.min.js', array(), null, true);
+  // Swiper(ver.8) JS
+  wp_enqueue_script(
+    'swiper-js',
+    get_template_directory_uri() . '/assets/js/vendor/swiper-bundle.min.js',
+    array(),
+    null,
+    true
+  );
 
-  // WOW JS
-  wp_enqueue_script('wow-js', 'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js', array(), null, true);
+  // inview
+  wp_enqueue_script('inview-js', get_template_directory_uri() . '/assets/js/vendor/jquery.inview.min.js', array('jquery'), null, true);
 
-  // オリジナルのJSファイル
-  wp_enqueue_script('theme-script', get_template_directory_uri() . '/assets/js/script.js', array(), null, true);
+  // GSAP
+  wp_enqueue_script(
+    'gsap',
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js',
+    array(),
+    '3.12.7',
+    true
+  );
+  wp_enqueue_script(
+    'gsap-scrollto',
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollToPlugin.min.js',
+    array('gsap'),
+    '3.12.7',
+    true
+  );
+  wp_enqueue_script(
+    'gsap-scrolltrigger',
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js',
+    array('gsap'),
+    '3.12.7',
+    true
+  );
+
+  // オリジナルJS
+  wp_enqueue_script(
+    'theme-script',
+    get_template_directory_uri() . '/assets/js/script.js',
+    array('jquery', 'swiper-js', 'inview-js', 'gsap-scrolltrigger', 'gsap-scrollto'),
+    '1.0.0',
+    true
+  );
 }
+
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles_and_scripts');
 
 
@@ -284,6 +322,7 @@ add_filter('write_your_story', 'custom_enter_placeholder', 10, 2);
 ContactForm 7で自動挿入されるPタグ、brタグを削除
 /*----------------------------------------------*/
 add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
-function wpcf7_autop_return_false() {
+function wpcf7_autop_return_false()
+{
   return false;
 }

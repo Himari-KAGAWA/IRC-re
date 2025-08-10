@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
 <main class="main">
-  <div class="main__lower-image wow fadeInUp"></div>
+  <div class="main__lower-image js-in-view fade-in-up"></div>
   <!-- 下層ページメインビュー -->
-  <section class="sub-mv sub-mv__bg sub-mv__bg--info wow fadeIn">
+  <section class="sub-mv sub-mv__bg sub-mv__bg--info js-in-view fade-in">
     <div class="sub-mv_inner">
       <div class="sub-mv__header">
         <h1 class="sub-mv__title sub-mv__title--info">Information</h1>
@@ -19,7 +19,7 @@
   <div class="page top-page--info">
     <div class="page__inner inner">
       <div class="page__content page-information">
-        <div class="page-information__tabs wow fadeIn">
+        <div class="page-information__tabs js-in-view fade-in">
           <ul class="page-information__tab">
             <li id="tab1" class="page-information__tab-nav is-active">
               <span>
@@ -57,7 +57,8 @@
                       src="<?php echo get_theme_file_uri(); ?>/assets/images/common/lower/page-info-panel-pc_01.webp"
                       alt="ヘルメットをかぶってこちらに微笑む少女の画像"
                       width="295"
-                      height="187" />
+                      height="187"
+                      loading="lazy" decoding="async">
                   </picture>
                 </div>
               </div>
@@ -82,7 +83,8 @@
                       src="<?php echo get_theme_file_uri(); ?>/assets/images/common/lower/page-info-panel-pc_02.webp"
                       alt="ジャンプの練習をする人馬の画像"
                       width="295"
-                      height="187" />
+                      height="187"
+                      loading="lazy" decoding="async">
                   </picture>
                 </div>
               </div>
@@ -107,7 +109,8 @@
                       src="<?php echo get_theme_file_uri(); ?>/assets/images/common/lower/page-info-panel-pc_03.webp"
                       alt="山の麓を乗馬で散策する人達の画像"
                       width="295"
-                      height="187" />
+                      height="187"
+                      loading="lazy" decoding="async">
                   </picture>
                 </div>
               </div>

@@ -1,0 +1,21 @@
+@use "global" as *;
+
+/*-----------------------------------------------
+  表示させたい要素に js-in-view slide-in-right を追記する
+------------------------------------------------*/
+// アニメーション定義
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(rem(2000));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// アニメーション発火用クラス
+.slide-in-right.is-in-view {
+  animation: slideInRight 1s ease-out forwards;
+}

@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 <main class="main">
-  <div class="main__lower-image wow fadeInUp"></div>
-  <section class="sub-mv sub-mv__bg sub-mv__bg--contact wow fadeIn">
+  <div class="main__lower-image js-in-view fade-in-up"></div>
+  <section class="sub-mv sub-mv__bg sub-mv__bg--contact js-in-view fade-in">
     <div class="sub-mv_inner">
       <div class="sub-mv__header">
         <h1 class="sub-mv__title sub-mv__title--blog">contact</h1>
@@ -18,7 +18,7 @@
   <div class="page top-page--thx">
     <div class="page__content page-thanks">
       <div class="page-thanks__inner">
-        <div class="page-thanks__message wow fadeIn">
+        <div class="page-thanks__message js-in-view fade-in">
           <p class="page-thanks__complete">
             お問い合わせ内容を送信完了しました。
           </p>

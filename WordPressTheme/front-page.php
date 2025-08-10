@@ -1,9 +1,53 @@
 <?php get_header(); ?>
 
-<main>
+<main class="main">
+
+  <!-- オープニングアニメーション -->
+  <section class="opening" aria-hidden="true">
+    <!-- aria-hidden：アクセシビリティ上、スクリーンリーダーから隠す -->
+    <div class="opening__inner">
+
+      <div class="opening__screen">
+
+        <!-- タイトルロゴ：オレンジ -->
+        <!-- オレンジロゴの演出用（画像は1枚だけをCSS背景で使う） -->
+        <div class="opening__orangeBox">
+          <div class="opening__logoOrangeFx" aria-hidden="true">
+            <div class="logoMask logoMask--bottom"></div> <!-- 英文ライン用 -->
+            <div class="logoMask logoMask--top"></div> <!-- 日本語ロゴ用 -->
+          </div>
+        </div>
+
+        <!-- 背景画像 -->
+        <div class="opening__image">
+          <div class="opening__half opening__half--left"></div>
+          <div class="opening__half opening__half--right"></div>
+        </div>
+
+        <!-- タイトルロゴ：白 -->
+        <div class="opening__logoWhite" aria-hidden="true">
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc/title-white_PC.webp">
+            <img
+              src="<?php echo get_theme_file_uri(); ?>/assets/images/common/title-white_SP.webp"
+              alt=""
+              width="281"
+              height="106"
+              loading="lazy"
+              decoding="async">
+          </picture>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
   <!-- mv：メインビュー -->
   <div class="mv">
-    <div class="mv__inner wow fadeIn">
+    <div class="mv__inner js-in-view fade-in">
       <div class="mv__lead-wrap">
         <p class="mv__lead">
           絆が、心と体を自由にする
@@ -32,25 +76,25 @@
               <?php if ($img_url_SP && $img_url_PC) : ?>
                 <picture>
                   <source srcset="<?php echo esc_url($img_url_PC[0]); ?>" media="(min-width:768px)" />
-                  <img src="<?php echo esc_url($img_url_SP[0]); ?>" alt="<?php echo $img_alt; ?>" width="375" height="667" decoding="async" />
+                  <img src="<?php echo esc_url($img_url_SP[0]); ?>" alt="<?php echo $img_alt; ?>" width="375" height="667" loading="eager" decoding="async">
                 </picture>
                 <!-- スマホ用画像のみが存在する場合、PCはローディング画像を表示 -->
               <?php elseif ($img_url_SP) : ?>
                 <picture>
                   <source srcset="<?php echo esc_url(get_theme_file_uri() . '/assets/images/common/pc/mv-loading_pc.webp'); ?>" media="(min-width: 768px)">
-                  <img src="<?php echo esc_url($img_url_SP[0]); ?>" alt="<?php echo $img_alt; ?>" width="375" height="667" decoding="async" />
+                  <img src="<?php echo esc_url($img_url_SP[0]); ?>" alt="<?php echo $img_alt; ?>" width="375" height="667" loading="eager" decoding="async">
                 </picture>
                 <!-- PC用画像のみが存在する場合、SPはローディング画像を表示 -->
               <?php elseif ($img_url_PC) : ?>
                 <picture>
                   <source srcset="<?php echo esc_url($img_url_PC[0]); ?>" media="(min-width: 768px)">
-                  <img src="<?php echo esc_url(get_theme_file_uri() . '/assets/images/common/mv-loading.webp'); ?>" alt="<?php echo $img_alt; ?>" width="375" height="667" decoding="async" />
+                  <img src="<?php echo esc_url(get_theme_file_uri() . '/assets/images/common/mv-loading.webp'); ?>" alt="<?php echo $img_alt; ?>" width="375" height="667" loading="eager" decoding="async">
                 </picture>
               <?php else : ?>
                 <!-- どちらの画像も存在しない場合ローディング画像を表示 -->
                 <picture>
                   <source srcset="<?php echo esc_url(get_theme_file_uri() . '/assets/images/common/pc/mv-loading_pc.webp'); ?>" media="(min-width: 768px)">
-                  <img src="<?php echo esc_url(get_theme_file_uri() . '/assets/images/common/mv-loading.webp'); ?>" alt="Loading image" width="375" height="667">
+                  <img src="<?php echo esc_url(get_theme_file_uri() . '/assets/images/common/mv-loading.webp'); ?>" alt="Loading image" width="375" height="667" loading="eager" decoding="async">
                 </picture>
               <?php endif; ?>
             </div>
@@ -65,7 +109,7 @@
 
   <!-- campaign：キャンペーン -->
   <section id="campaign" class="campaign top-campaign">
-    <div class="campaign__inner inner wow fadeIn">
+    <div class="campaign__inner inner js-in-view fade-in">
       <div class="campaign__header section-header">
         <div class="section-header__engtitle">campaign</div>
         <h2 class="section-header__jatitle">キャンペーン</h2>
@@ -76,7 +120,7 @@
         <div class="swiper-button-next js-campaign-next" aria-label="次のスライド"></div>
       </div>
       <!-- キャンペーンスライダー -->
-      <div class="campaign__slider wow fadeInRightBig" data-wow-duration="1s">
+      <div class="campaign__slider js-in-view slide-in-right">
         <!-- swiper:変更不可クラス -->
         <div class="campaign__swiper swiper js-campaign-swiper">
           <!-- swiper-wrapper:変更不可クラス -- -->
@@ -104,7 +148,7 @@
                         <?php the_post_thumbnail(); ?>
                       <?php else : ?>
                         <!-- アイキャッチ画像がない場合のデフォルト画像 -->
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>" width="280" height="188">
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="<?php echo esc_attr('No image'); ?>" width="280" height="188" loading="lazy" decoding="async">
                       <?php endif; ?>
                     </div>
                     <div class="card-01__body">
@@ -184,7 +228,7 @@
         </div>
       </div>
     </div>
-    <div class="campaign__link wow fadeInUp">
+    <div class="campaign__link js-in-view fade-in-up">
       <a href="<?php echo esc_url(home_url('/campaign')); ?>" id="js-click" class="link-button">
 
         <span class="arrow-x"></span>
@@ -196,31 +240,31 @@
   <!-- about-us：私たちについて -->
   <section id="about" class="about top-about">
     <div class="about__inner inner">
-      <div class="about__header section-header wow fadeIn">
+      <div class="about__header section-header js-in-view fade-in">
         <div class="section-header__engtitle">about us</div>
         <h2 class="section-header__jatitle">私たちについて</h2>
       </div>
-      <div class="about__img-wrapper wow fadeIn">
+      <div class="about__img-wrapper js-in-view fade-in">
         <div class="about__img-left">
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-bg.webp" alt="鐙と鞍の画像" />
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-bg.webp" alt="鐙と鞍の画像" loading="lazy" decoding="async">
         </div>
         <div class="about__img-right">
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-bg_2.jpg" alt="こちらを見つめる黒い馬の画像" />
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-bg_2.jpg" alt="こちらを見つめる黒い馬の画像" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="about__contents">
-        <div class="about__lead wow fadeIn">
+        <div class="about__lead js-in-view fade-in">
           We're
           <br />
           happy
           <br class="u-desktop" />
           together.
         </div>
-        <div class="about__copy wow fadeIn">
+        <div class="about__copy js-in-view fade-in">
           <p class="about__text">
             私たちのクラブでは、馬との信頼関係を築くことを最も大切にしています。<br>言葉を話さない、自分とは違う意思を持つ相手と心を通わせることで得られる喜びは、他に代えがたいものです。<br>馬との触れ合いを通じて、心身ともに豊かな時間を過ごしていただけるよう、私たちがサポートします。
           </p>
-          <div class="about__link wow fadeInUp">
+          <div class="about__link js-in-view fade-in-up">
             <a href="<?php echo esc_url(home_url('/about-us')); ?>" class="link-button">
               <span class="arrow-x"></span>
             </a>
@@ -228,8 +272,8 @@
         </div>
       </div>
     </div>
-    <div class="about__img-icon u-desktop wow fadeInUp">
-      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc/horse.png" alt="走る馬のアイコン" width="170" height="144" />
+    <div class="about__img-icon u-desktop js-in-view fade-in-up">
+      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc/horse.png" alt="走る馬のアイコン" width="170" height="144" loading="lazy" decoding="async">
     </div>
   </section>
   <!-- /about-us：私たちについて -->
@@ -237,13 +281,13 @@
   <!-- information：乗馬メニュー情報 -->
   <section id="information" class="information section">
     <div class="information__inner inner">
-      <div class="information__header section-header wow fadeIn">
+      <div class="information__header section-header js-in-view fade-in">
         <div class="section-header__engtitle">information</div>
         <h2 class="section-header__jatitle">乗馬メニュー情報</h2>
       </div>
-      <div class="information__wrapper wow fadeIn">
+      <div class="information__wrapper js-in-view fade-in">
         <div class="information__img js-inview">
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/information.webp" alt="ニンジンを分け合う人馬の画像" width="345" height="227" />
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/information.webp" alt="ニンジンを分け合う人馬の画像" width="345" height="227" loading="lazy" decoding="async">
         </div>
         <div class="information__content">
           <p class="information__title">乗馬ライセンス取得</p>
@@ -252,7 +296,7 @@
             <br />
             初めての方から経験豊富なライダーの方まで、すべてのレベルに対応する技能を持ったスタッフが安心・安全にライセンスを取得するためのサポートをいたします。会員だけでなくビジターの方にもご利用いただけるコースもございます。
           </p>
-          <div class="information__link wow fadeInUp">
+          <div class="information__link js-in-view fade-in-up">
             <a href="<?php echo esc_url(home_url('/information')); ?>" class="link-button link-button__layout">
               <span class="arrow-x"></span>
             </a>
@@ -266,7 +310,7 @@
   <!-- blog：ブログ -->
   <section id="blog" class="blog">
     <div class="blog__inner inner">
-      <div class="blog__header section-header wow fadeIn">
+      <div class="blog__header section-header js-in-view fade-in">
         <div class="section-header__engtitle section-header__engtitle--white">
           Blog
         </div>
@@ -288,7 +332,7 @@
         <?php if ($the_query->have_posts()) : ?>
           <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
             <!-- ブログカード -->
-            <article class="blog-cards__item card-02 wow fadeIn">
+            <article class="blog-cards__item card-02 js-in-view fade-in">
               <!-- 投稿のパーマリンクをリンクとして追加 -->
               <a href="<?php the_permalink(); ?>" class="card-02__link">
                 <div class="card-02__img">
@@ -297,7 +341,7 @@
                     <?php the_post_thumbnail(); ?>
                   <?php else : ?>
                     <!-- アイキャッチ画像がない場合のデフォルト画像 -->
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="No image" width="301" height="201">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-img.png" alt="No image" width="301" height="201" loading="lazy" decoding="async">
                   <?php endif; ?>
                 </div>
                 <div class="card-02__header">
@@ -322,14 +366,14 @@
         <?php endif; ?>
 
       </div>
-      <div class="blog__link wow fadeInUp">
+      <div class="blog__link js-in-view fade-in-up">
         <a href="<?php echo esc_url(home_url('/blog')); ?>" class="link-button">
           <span class="arrow-x"></span>
         </a>
       </div>
     </div>
-    <div class="blog__img-icon u-desktop wow fadeInUp">
-      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc/blog-illust-w.png" alt="足跡風に並んだ蹄鉄のイラスト" width="218" height="150" />
+    <div class="blog__img-icon u-desktop js-in-view fade-in-up">
+      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc/blog-illust-w.png" alt="足跡風に並んだ蹄鉄のイラスト" width="218" height="150" loading="lazy" decoding="async">
     </div>
   </section>
   <!-- /blog：ブログ -->
@@ -337,11 +381,11 @@
   <!-- voice：お客様の声 -->
   <section id="voice" class="voice top-voice">
     <div class="voice__inner inner">
-      <div class="voice__header section-header wow fadeIn">
+      <div class="voice__header section-header js-in-view fade-in">
         <div class="section-header__engtitle">voice</div>
         <h2 class="section-header__jatitle">お客様の声</h2>
       </div>
-      <div class="voice__items voice-cards wow fadeIn">
+      <div class="voice__items voice-cards js-in-view fade-in">
         <?php
         // 新着2件のカスタム投稿を取得
         $args = array(
@@ -356,7 +400,7 @@
         <!-- サブループとしてカスタム投稿をループ -->
         <?php if ($query->have_posts()) : ?>
           <?php while ($query->have_posts()) : $query->the_post(); ?>
-            <div class="voice-cards__item card-03 wow fadeIn">
+            <div class="voice-cards__item card-03 js-in-view fade-in">
               <a href="<?php echo esc_url(home_url('/voice')); ?>" class="card-03__link">
                 <div class="card-03__header">
                   <div class="card-03__left">
@@ -386,7 +430,7 @@
                     <?php if (has_post_thumbnail()) : ?>
                       <?php the_post_thumbnail(); ?>
                     <?php else : ?>
-                      <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/common/noimg.jpg" alt="No image" width="151" height="117">
+                      <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/common/noimg.jpg" alt="No image" width="151" height="117" loading="lazy" decoding="async">
                     <?php endif; ?>
                   </div>
                 </div>
@@ -418,17 +462,17 @@
         <?php endif; ?>
       </div>
 
-      <div class="voice__link wow fadeInUp">
+      <div class="voice__link js-in-view fade-in-up">
         <a href="<?php echo esc_url(home_url('/voice')); ?>" class="link-button">
           <span class="arrow-x"></span>
         </a>
       </div>
     </div>
-    <div class="voice__img-icon u-desktop wow fadeInUp">
-      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/horse-illust.png" alt="障害を飛ぶ人馬のイラスト" width="330" height="235" />
+    <div class="voice__img-icon u-desktop js-in-view fade-in-up">
+      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/horse-illust.png" alt="障害を飛ぶ人馬のイラスト" width="330" height="235" loading="lazy" decoding="async">
     </div>
-    <div class="voice__img-icon2 u-desktop wow fadeInUp">
-      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc/horseshoe.png" alt="縦に3つ並んだ蹄鉄のイラスト" width="71" height="162" />
+    <div class="voice__img-icon2 u-desktop js-in-view fade-in-up">
+      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc/horseshoe.png" alt="縦に3つ並んだ蹄鉄のイラスト" width="71" height="162" loading="lazy" decoding="async">
     </div>
   </section>
   <!-- /voice：お客様の声 -->
@@ -436,11 +480,11 @@
   <!-- price：料金一覧 -->
   <section id="price" class="price section">
     <div class="price__inner inner">
-      <div class="price__header section-header wow fadeIn">
+      <div class="price__header section-header js-in-view fade-in">
         <div class="section-header__engtitle">price</div>
         <h2 class="section-header__jatitle">料金一覧</h2>
       </div>
-      <div class="price__contents wow fadeIn">
+      <div class="price__contents js-in-view fade-in">
         <div class="price__items">
 
           <!-- 乗馬体験プログラム：ビジター -->
@@ -617,21 +661,21 @@
           </div>
         </div>
 
-        <div class="price__img js-inview wow fadeIn">
+        <div class="price__img js-inview js-in-view fade-in">
           <picture>
             <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc/price-pc.webp" media="(min-width:768px)" alt="障害を踏み切って飛ぶ馬の画像" />
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-sp.webp" alt="栗毛の馬の画像" width="345" height="227" />
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-sp.webp" alt="栗毛の馬の画像" width="345" height="227" loading="lazy" decoding="async">
           </picture>
         </div>
       </div>
-      <div class="price__link wow fadeInUp">
+      <div class="price__link js-in-view fade-in-up">
         <a href="<?php echo esc_url(home_url('/price')); ?>" class="link-button">
           <span class="arrow-x"></span>
         </a>
       </div>
     </div>
-    <div class="price__img-icon u-desktop wow fadeInUp">
-      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc/hose-price-illust.png" alt="" width="340" height="265" />
+    <div class="price__img-icon u-desktop js-in-view fade-in-up">
+      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc/hose-price-illust.png" alt="" width="340" height="265" loading="lazy" decoding="async">
     </div>
   </section>
   <!-- /price：料金一覧 -->

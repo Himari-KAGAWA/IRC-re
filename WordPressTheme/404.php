@@ -10,7 +10,7 @@
   <div class="not-found">
     <div class="not-found__bg"></div>
     <div class="not-found__inner inner">
-      <div class="not-found__wrapper wow fadeIn">
+      <div class="not-found__wrapper js-in-view fade-in">
         <h1 class="not-found__message">404</h1>
         <p class="not-found__text">
           申し訳ありません。
