@@ -1306,50 +1306,6 @@ a {
 	width: 100%;
 }
 
-.form__field--checkbox span.wpcf7-not-valid-tip::after,
-.form__field--checkbox span.wpcf7-list-item.last::after,
-.form__field--checkbox span.wpcf7-form-control-wrap::after,
-.form__field--checkbox span.wpcf7-form-control.wpcf7-radio::after,
-.form__field--checkbox span.wpcf7-list-item::after,
-.form__field--checkbox span.wpcf7-list-item.first::after,
-.form__field--checkbox span.wpcf7-not-valid-tip::before,
-.form__field--checkbox span.wpcf7-form-control-wrap::before,
-.form__field--checkbox span.wpcf7-form-control.wpcf7-radio::before,
-.form__field--checkbox span.wpcf7-list-item::before,
-.form__field--checkbox span.wpcf7-list-item.first::before,
-.form__field--radio span.wpcf7-not-valid-tip::after,
-.form__field--radio span.wpcf7-list-item.last::after,
-.form__field--radio span.wpcf7-form-control-wrap::after,
-.form__field--radio span.wpcf7-form-control.wpcf7-radio::after,
-.form__field--radio span.wpcf7-list-item::after,
-.form__field--radio span.wpcf7-list-item.first::after,
-.form__field--radio span.wpcf7-not-valid-tip::before,
-.form__field--radio span.wpcf7-form-control-wrap::before,
-.form__field--radio span.wpcf7-form-control.wpcf7-radio::before,
-.form__field--radio span.wpcf7-list-item::before,
-.form__field--radio span.wpcf7-list-item.first::before {
-	clip: rect(0, 0, 0, 0);
-}
-
-.form__field--checkbox span.wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required::after,
-.form__field--checkbox span.wpcf7-not-valid-tip::before,
-.form__field--checkbox span.wpcf7-form-control-wrap::before,
-.form__field--checkbox span.wpcf7-form-control.wpcf7-radio::before,
-.form__field--checkbox span.wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required::before,
-.form__field--checkbox span.wpcf7-list-item::before,
-.form__field--checkbox span.wpcf7-list-item.first::before {
-	clip: rect(0, 0, 0, 0);
-}
-
-.form__field--privacy span.wpcf7-form-control.wpcf7-acceptance::after,
-.form__field--privacy span.wpcf7-list-item::before,
-.form__field--privacy span.wpcf7-list-item-label::before,
-.form__field--privacy span.wpcf7-form-control-wrap::before,
-.form__field--privacy span.wpcf7-form-control.wpcf7-acceptance::before {
-	background: transparent;
-	border: none;
-}
-
 .wpcf7-spinner {
 	display: none !important;
 }
@@ -1468,8 +1424,8 @@ a {
 	height: 0;
 	pointer-events: none;
 	position: absolute;
-	right: 0;
-	top: 0;
+	right: 1rem;
+	top: 50%;
 	transform: rotate(90deg) translateX(-25%);
 	transition: transform 0.3s ease 0s;
 	width: 0;
@@ -1497,15 +1453,16 @@ a {
 .form__field--checkbox input[type=checkbox] {
 	clip: rect(0, 0, 0, 0);
 	display: block;
-	height: 1px;
-	position: absolute;
-	width: 1px;
+	height: 0.0625rem;
+	position: relative;
+	width: 0.0625rem;
 }
 
-.form__field--checkbox input[type=checkbox]:checked + span::after {
+.form__field--checkbox input[type=checkbox]:checked::after {
 	opacity: 1;
 }
 
+.wpcf7-form-control.wpcf7-checkbox,
 .form__field--checkbox {
 	display: inline-flex;
 	flex-direction: column;
@@ -1515,37 +1472,34 @@ a {
 .form__field--checkbox span {
 	display: inline-block;
 	margin: 0;
-	position: relative;
 }
 
-.form__field--checkbox span::before {
+.form__field--checkbox input[type=checkbox] {
 	background: #f7f4f2;
 	border: 0.0625rem solid #e65b20;
 	border-radius: 0.125rem;
 	box-sizing: border-box;
-	content: "";
+	display: inline-block;
 	height: 0.875rem;
-	left: -1.25rem;
-	position: absolute;
-	top: calc(50% - 0.0625rem);
-	transform: translateY(-50%);
+	left: -0.25rem;
+	top: 0.3125rem;
 	width: 0.875rem;
 }
 
 .form__field--checkbox label {
 	cursor: pointer;
-	margin-left: 1.25rem;
+	margin-left: 1rem;
 }
 
-.form__field--checkbox span::after {
+.form__field--checkbox input[type=checkbox]::after {
 	border-bottom: solid 0.125rem #e65b20;
 	border-left: solid 0.125rem #e65b20;
 	content: "";
 	height: 0.3125rem;
-	left: -1.0625rem;
+	left: 0.125rem;
 	opacity: 0;
 	position: absolute;
-	top: 0.5rem;
+	top: 0.125rem;
 	transform: rotate(-40deg);
 	transition: 0.3s;
 	width: 0.5625rem;
@@ -1559,11 +1513,11 @@ a {
 	clip: rect(0, 0, 0, 0);
 	display: block;
 	height: 0.0625rem;
-	position: absolute;
+	position: relative;
 	width: 0.0625rem;
 }
 
-.form__field--radio input[type=radio]:checked + span::after {
+.form__field--radio input[type=radio]:checked::after {
 	opacity: 1;
 }
 
@@ -1572,48 +1526,43 @@ a {
 	align-items: center;
 	display: inline-flex;
 	flex-wrap: wrap;
-	gap: 1.25rem;
-	line-height: 0.5;
+	gap: 1rem 1.25rem;
 }
 
 .form__field--radio span {
 	display: inline-block;
 	margin: 0;
-	position: relative;
 }
 
-.form__field--radio span::before {
+.form__field--radio input[type=radio] {
 	background: #f7f4f2;
 	border: 0.0625rem solid #e65b20;
 	border-radius: 50%;
 	box-sizing: border-box;
-	content: "";
+	display: inline-block;
 	height: 0.875rem;
-	left: -1.25rem;
-	position: absolute;
-	top: calc(50% - 0.0625rem);
-	transform: translateY(-50%);
+	left: -0.25rem;
+	top: 0.125rem;
 	width: 0.875rem;
 }
 
-.form__field--radio span::after {
+.form__field--radio input[type=radio]::after {
 	background-color: #e65b20;
 	border-radius: 50%;
 	content: "";
 	display: block;
 	height: 0.5rem;
-	left: -0.8125rem;
+	left: 0.125rem;
 	opacity: 0;
 	position: absolute;
-	top: calc(50% - 0.0625rem);
-	transform: translate(-50%, -50%);
+	top: 0.125rem;
 	transition: opacity 0.2s;
 	width: 0.5rem;
 }
 
 .form__field--radio label {
 	cursor: pointer;
-	margin-left: 1.25rem;
+	margin-left: 1rem;
 }
 
 .form__footer {
@@ -1621,33 +1570,35 @@ a {
 }
 
 .form__footer span {
+	color: #3e1300;
 	font-size: 0.875rem;
 	width: 100%;
 }
 
 .form__field--privacy {
-	color: #3e1300;
 	display: inline-block;
 	padding-left: 2rem;
-	position: relative;
 }
 
-.form__field--privacy input[type=checkbox]:checked + span::after {
+.form__field--privacy label {
+	display: flex;
+}
+
+.form__field--privacy input[type=checkbox]:checked::after {
 	opacity: 1;
 }
 
-.form__field--privacy span::before {
+.form__field--privacy input[type=checkbox] {
 	height: 1.375rem;
 	left: -1.5rem;
-	top: 50%;
-	transform: translateY(-50%);
+	top: -0.125rem;
 	width: 1.375rem;
 }
 
-.form__field--privacy span::after {
+.form__field--privacy input[type=checkbox]::after {
 	height: 0.5rem;
-	left: -1.25rem;
-	top: 0.21875rem;
+	left: 0.15625rem;
+	top: 0.25rem;
 	transform: rotate(-40deg);
 	width: 0.875rem;
 }
@@ -1657,13 +1608,9 @@ a {
 	padding-bottom: 0.0625rem;
 }
 
-.form__submit input[type=submit]:disabled {
-	cursor: not-allowed;
-}
-
 .form__submit {
 	background-color: #f7f4f2;
-	border: 1px solid #9a9a9a;
+	border: 0.0625rem solid #9a9a9a;
 	border-radius: 100vh;
 	margin: 2.5rem auto;
 	position: relative;
@@ -1673,7 +1620,7 @@ a {
 
 .form__submit::before {
 	background-color: #9a9a9a;
-	border: 1px solid #9a9a9a;
+	border: 0.0625rem solid #9a9a9a;
 	border-radius: 100vh;
 	content: "";
 	height: 100%;
@@ -1684,15 +1631,16 @@ a {
 	z-index: -1;
 }
 
-.form__submit input {
+.form__submit input.wpcf7-submit {
+	all: unset;
 	color: #cdcdcd;
 	font-family: "BioRhyme", serif;
 	font-size: 1rem;
-	padding: 0.625rem 7.0625rem 1.25rem 3.3125rem;
+	padding: 0.8125rem 5.25rem 1.0625rem 3.3125rem;
 	transition: color 1s;
 }
 
-.form__submit.is-submit {
+.form__submit.-active {
 	background-color: transparent;
 	border: 1px solid #e65b20;
 	border-radius: 100vh; /* // 送信ボタン重なり下のスタイル */
@@ -1704,7 +1652,7 @@ a {
 	z-index: 1;
 }
 
-.form__submit.is-submit::before {
+.form__submit.-active::before {
 	--color: #f7f4f2;
 	background-image: linear-gradient(90deg, #f7f4f2 50%, #e65b20 50%);
 	background-image: linear-gradient(90deg, var(--color) 50%, #e65b20 50%);
@@ -1723,7 +1671,7 @@ a {
 	z-index: -1;
 }
 
-.form__submit.is-submit input {
+.form__submit.-active input {
 	color: #f7f4f2;
 	cursor: pointer;
 	font-family: "BioRhyme", serif;
@@ -1736,19 +1684,15 @@ a {
 	width: 100%;
 }
 
-.form__submit.is-submit input[type=submit] {
-	cursor: pointer;
-}
-
-.form__submit.is-submit:hover::before {
+.form__submit.-active:hover::before {
 	background-position: 0;
 }
 
-.form__submit.is-submit:hover input {
+.form__submit.-active:hover input {
 	color: #e65b20;
 }
 
-.form__submit.is-submit .arrow-submit::before {
+.form__submit.-active .arrow-submit::before {
 	background-color: #f7f4f2;
 	content: "";
 	height: 0.0625rem;
@@ -1760,7 +1704,7 @@ a {
 	width: 0.625rem;
 }
 
-.form__submit.is-submit .arrow-submit::after {
+.form__submit.-active .arrow-submit::after {
 	background-color: #f7f4f2;
 	content: "";
 	height: 0.0625rem;
@@ -1771,9 +1715,17 @@ a {
 	width: 2.5rem;
 }
 
-.form__submit.is-submit:hover .arrow-submit::before,
-.form__submit.is-submit:hover .arrow-submit::after {
+.form__submit.-active:hover .arrow-submit::before,
+.form__submit.-active:hover .arrow-submit::after {
 	background-color: #e65b20;
+}
+
+.form__submit input[type=submit]:disabled {
+	cursor: not-allowed;
+}
+
+.form__submit.-active input[type=submit] {
+	cursor: pointer;
 }
 
 .form__label span.is-required {
@@ -1800,14 +1752,14 @@ a {
 .form__row input:focus-visible,
 .form__row--massage textarea:focus-visible,
 .form__row--select select:focus-visible {
-	outline: 1px solid #c94800;
+	outline: 0.0625rem solid #c94800;
 	transition: outline 0.3s;
 }
 
 .form__row input:focus,
 .form__row--massage textarea:focus,
 .form__row--select select:focus {
-	outline: 1px solid #c94800;
+	outline: 0.0625rem solid #c94800;
 	transition: outline 0.3s;
 }
 
@@ -1815,19 +1767,19 @@ a:focus-visible {
 	outline: none;
 }
 
-.form__field--checkbox input[type=checkbox]:focus-visible + span::before,
-.form__field--checkbox input[type=checkbox]:focus + span::before {
-	outline: 1px solid #c94800;
+.form__field--checkbox input[type=checkbox]:focus-visible,
+.form__field--checkbox input[type=checkbox]:focus {
+	outline: 0.0625rem solid #c94800;
 }
 
-.form__field--radio input[type=radio]:focus-visible + span::before,
-.form__field--radio input[type=radio]:focus + span::before {
-	outline: 1px solid #c94800;
+.form__field--radio input[type=radio]:focus-visible,
+.form__field--radio input[type=radio]:focus {
+	outline: 0.0625rem solid #c94800;
 }
 
-.form__field--privacy input[type=checkbox]:focus-visible + span::before,
-.form__field--privacy input[type=checkbox]:focus + span::before {
-	outline: 1px solid #c94800;
+.form__field--privacy input[type=checkbox]:focus-visible,
+.form__field--privacy input[type=checkbox]:focus {
+	outline: 0.0625rem solid #c94800;
 }
 
 .form__row input.wpcf7-not-valid,
@@ -1864,23 +1816,23 @@ a:focus-visible {
 	background: rgba(230, 91, 32, 0.2);
 }
 
-.form__field--checkbox .wpcf7-not-valid span::before {
+.form__field--checkbox .wpcf7-not-valid input[type=checkbox] {
 	background: rgba(230, 91, 32, 0.2);
 	border: 0.125rem solid #3e1300;
 }
 
-.form__field--checkbox .wpcf7-not-valid input[type=checkbox]:focus-visible + span::before,
-.form__field--checkbox .wpcf7-not-valid input[type=checkbox]:focus + span::before {
+.form__field--checkbox .wpcf7-not-valid input[type=checkbox]:focus-visible,
+.form__field--checkbox .wpcf7-not-valid input[type=checkbox]:focus {
 	outline: 1px solid #3e1300;
 }
 
-.form__field--radio .wpcf7-not-valid span::before {
+.form__field--radio .wpcf7-not-valid input[type=radio] {
 	background: rgba(230, 91, 32, 0.2);
 	border: 0.125rem solid #3e1300;
 }
 
-.form__field--radio .wpcf7-not-valid input[type=radio]:focus-visible + span::before,
-.form__field--radio .wpcf7-not-valid input[type=radio]:focus + span::before {
+.form__field--radio .wpcf7-not-valid input[type=radio]:focus-visible,
+.form__field--radio .wpcf7-not-valid input[type=radio]:focus {
 	outline: 1px solid #3e1300;
 }
 
@@ -4137,22 +4089,22 @@ page-about .about__contents--page {
 .form__row input:hover,
 .form__row--massage textarea:hover,
 .form__row--select select:hover {
-	box-shadow: 0px 0px 0px 1px rgba(230, 91, 32, 0.7), 0px 0px 3px 2px rgba(230, 91, 32, 0.2);
+	box-shadow: 0 0 0 0.0625rem rgba(230, 91, 32, 0.7), 0 0 0.1875rem 0.125rem rgba(230, 91, 32, 0.2);
 	transition: box-shadow 0.3s;
 }
 
-.form__field--checkbox input[type=checkbox]:hover + span::before {
-	box-shadow: 0px 0px 0px 1px rgba(230, 91, 32, 0.7), 0px 0px 3px 2px rgba(230, 91, 32, 0.2);
+.form__field--checkbox input[type=checkbox]:hover {
+	box-shadow: 0 0 0 0.0625rem rgba(230, 91, 32, 0.7), 0 0 0.1875rem 0.125rem rgba(230, 91, 32, 0.2);
 	transition: box-shadow 0.3s;
 }
 
-.form__field--radio input[type=radio]:hover + span::before {
-	box-shadow: 0px 0px 0px 1px rgba(230, 91, 32, 0.7), 0px 0px 3px 2px rgba(230, 91, 32, 0.2);
+.form__field--radio input[type=radio]:hover {
+	box-shadow: 0 0 0 0.0625rem rgba(230, 91, 32, 0.7), 0 0 0.1875rem 0.125rem rgba(230, 91, 32, 0.2);
 	transition: box-shadow 0.3s;
 }
 
-.form__field--privacy input[type=checkbox]:hover + span::before {
-	box-shadow: 0px 0px 0px 1px rgba(230, 91, 32, 0.7), 0px 0px 3px 2px rgba(230, 91, 32, 0.2);
+.form__field--privacy input[type=checkbox]:hover {
+	box-shadow: 0 0 0 0.0625rem rgba(230, 91, 32, 0.7), 0 0 0.1875rem 0.125rem rgba(230, 91, 32, 0.2);
 	transition: box-shadow 0.3s;
 }
 
@@ -4162,11 +4114,11 @@ page-about .about__contents--page {
 	box-shadow: none;
 }
 
-.form__field--checkbox .wpcf7-not-valid input[type=checkbox]:hover + span::before {
+.form__field--checkbox .wpcf7-not-valid input[type=checkbox]:hover {
 	box-shadow: none;
 }
 
-.form__field--radio .wpcf7-not-valid input[type=radio]:hover + span::before {
+.form__field--radio .wpcf7-not-valid input[type=radio]:hover {
 	box-shadow: none;
 }
 

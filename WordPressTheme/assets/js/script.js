@@ -418,7 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ease: 'power3.out'
     }, '-=1.18') // 0.12秒遅れ（1.3 - 0.12 = 1.18 で重ね開始）
 
-    // 5) オレンジロゴをフェードアウト
+    // 5) オレンジロゴをフェードアウト（画像で隠れるので必要なし）
     // .to('.opening__logoOrange', {
     //   opacity: 0,
     //   duration: 0.4,

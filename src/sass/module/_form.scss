@@ -95,7 +95,6 @@
   }
 }
 
-
 // フォーム項目（入力欄）
 .form__row dd {
   color: $font;
@@ -136,8 +135,8 @@
   display: inline-block;
   content: "";
   position: absolute;
-  top: 0;
-  right: 0;
+  right: rem(16);
+  top: 50%;
   width: 0;
   height: 0;
   border-style: solid;
@@ -197,38 +196,39 @@
 // ===================================
 // デフォルトのチェックボックスを非表示（リセット対策）
 .form__field--checkbox input[type='checkbox'] {
-  width: 1px;
-  height: 1px;
-  position: absolute;
+  width: rem(1);
+  height: rem(1);
   clip: rect(0, 0, 0, 0);// デフォルトのチェックボックスを非表示
   display: block; // ← reset.css の none を上書き
+  position: relative;
 }
 
 // チェック選択時に表示するカスタム要素
-.form__field--checkbox input[type='checkbox']:checked + span::after {
+.form__field--checkbox input[type='checkbox']:checked::after {
   opacity: 1;
 }
 
-// チェックボックスの囲みのスタイル
+// チェックボックスを囲むスタイル
+.wpcf7-form-control.wpcf7-checkbox,
 .form__field--checkbox {
   display: inline-flex;
-  gap: rem(4); // ← ✔枠とテキストの間隔を自然に
-  flex-direction: column;
+  flex-direction: column; // 縦並びの時
+  gap: rem(4); // 行間と項目の間の余白
+  // line-hight: 1; // 行間の余白微調整
 }
 
+
+// 生成されたチェックボックスのmarginをリセット
 .form__field--checkbox span {
   display: inline-block;
-  position: relative;
   margin: 0;
 }
 
-// チェックの囲みのスタイル
-.form__field--checkbox span::before {
-  content: '';
-  position: absolute;
-  top: calc(50% - rem(1));
-  left: rem(-20);
-  transform: translateY(-50%);
+// ボックスのスタイル
+.form__field--checkbox input[type='checkbox'] {
+  display: inline-block;
+  top: rem(5);
+  left: rem(-4);
   width: rem(14);
   height: rem(14);
   border: rem(1) solid $main;
@@ -238,16 +238,16 @@
 }
 
 .form__field--checkbox label {
-  margin-left: rem(20);// 選択肢左側のチェックボックスの分の余白
+  margin-left: rem(16);// 選択肢左側のチェックボックスの分の余白
   cursor: pointer;
 }
 
 // チェックマークのスタイル
-.form__field--checkbox span::after {
+.form__field--checkbox input[type='checkbox']::after {
   content: '';
   position: absolute;
-  top: rem(8);
-  left: rem(-17);
+  top: rem(2);
+  left: rem(2);
   opacity: 0;
   width: rem(9);
   height: rem(5);
@@ -272,39 +272,37 @@
 .form__field--radio input[type='radio'] {
   width: rem(1);
   height: rem(1);
-  position: absolute;
+  position: relative;
   clip: rect(0, 0, 0, 0); // デフォルトを非表示
   display: block; // ← reset.css の none を上書き
 }
 
 // ラジオボタン選択時に表示するカスタム要素
-.form__field--radio input[type='radio']:checked + span::after {
+.form__field--radio input[type='radio']:checked::after {
   opacity: 1;
 }
 
 // ラジオボタンを囲むスタイル
-.wpcf7-form-control.wpcf7-radio,// Contactform7使用の場合
+.wpcf7-form-control.wpcf7-radio,
 .form__field--radio {
   display: inline-flex;
   align-items: center;
-  gap: rem(20); // 選択肢間の距離
+  gap: rem(16) rem(20); // 選択肢間の幅・高さの余白調節
   flex-wrap: wrap;
-  line-height: 0.5;// 改行時高さ調節
+  // line-height: 0.5;// 高さの余白微調節
 }
 
+// 生成されたラジオボタンのmarginをリセット
 .form__field--radio span {
   display: inline-block;
-  position: relative;
   margin: 0;
 }
 
 // 円い囲み部分のスタイル
-.form__field--radio span::before {
-  content: '';
-  position: absolute;
-  top: calc(50% - rem(1));
-  left: rem(-20);
-  transform: translateY(-50%);
+.form__field--radio input[type='radio'] {
+  display: inline-block;
+  top: rem(2);
+  left: rem(-4);
   width: rem(14);
   height: rem(14);
   border: rem(1) solid $main;
@@ -314,23 +312,22 @@
 }
 
 // ボタンの黒丸部分のスタイル
-.form__field--radio span::after {
+.form__field--radio input[type='radio']::after {
   display: block;
   content: '';
   position: absolute;
-  top: calc(50% - rem(1));;
-  left: rem(-13);
+  top: rem(2);
+  left: rem(2);
   opacity: 0;
   width: rem(8);
   height: rem(8);
   border-radius: 50%;
   background-color: $main;
-  transform: translate(-50%, -50%);
   transition: opacity 0.2s;
 }
 
 .form__field--radio label {
-  margin-left: rem(20);// 選択肢左側のボタン分の余白
+  margin-left: rem(16);// 選択肢左側のボタン分の余白
   cursor: pointer;
 }
 
@@ -345,36 +342,40 @@
   }
 }
 
+// テキスト部分のスタイル等
 .form__footer span {
   width: 100%;
   font-size: rem(14);
+  color: $font;
 }
 
 .form__field--privacy {
-  color: $font;
   display: inline-block;
-  position: relative;
   padding-left: rem(32); // チェックボックスと余白分移動
 }
 
+// チェックボックスとテキストを横並び
+.form__field--privacy label {
+  display: flex;
+}
+
 // チェック選択時に表示するカスタム要素
-.form__field--privacy input[type='checkbox']:checked + span::after {
+.form__field--privacy input[type='checkbox']:checked::after {
   opacity: 1;
 }
 
 // プライバシーポリシーのチェックボックス囲み部分
-.form__field--privacy span::before {
-  top: 50%;
+.form__field--privacy input[type='checkbox'] {
+  top: rem(-2);
   left: rem(-24);
-  transform: translateY(-50%);
   width: rem(22);
   height: rem(22);
 }
 
 // プライバシーポリシーのチェックマーク
-.form__field--privacy span::after {
-  top: rem(3.5);
-  left: rem(-20);
+.form__field--privacy input[type='checkbox']::after {
+  top: rem(4);
+  left: rem(2.5);
   width: rem(14);
   height: rem(8);
   transform: rotate(-40deg);
@@ -396,17 +397,11 @@
 // ===================================
 // 送信ボタン
 // ===================================
-
-// 送信不可時カーソルポインターを押下不可明示
-.form__submit input[type="submit"]:disabled {
-  cursor: not-allowed;
-}
-
 // 送信ボタン送信不可時のスタイル
 .form__submit {
   margin: rem(40) auto;
   width: rem(204);
-  border: 1px solid #9a9a9a;
+  border: rem(1) solid #9a9a9a;
   border-radius: 100vh;
   background-color: $base;
   position: relative;
@@ -415,7 +410,7 @@
 
 .form__submit::before {
   content: '';
-  border: 1px solid #9a9a9a;
+  border: rem(1) solid #9a9a9a;
   background-color: #9a9a9a;
   height: calc(100%);
   width: calc(100%);
@@ -426,16 +421,17 @@
   z-index: -1;
 }
 
-.form__submit input {
+.form__submit input.wpcf7-submit {
+  all: unset; // CF7デフォルトCSS完全リセット
   font-family: $english-family;
   font-size: rem(16);
   color: #cdcdcd;
-  padding: rem(10) rem(113) rem(20) rem(53);
+  padding: rem(13) rem(84) rem(17) rem(53);
   transition: color 1s;
 }
 
 // 送信ボタン送信OK時のスタイル
-.form__submit.is-submit {
+.form__submit.-active {
   /* // 送信ボタン重なり下のスタイル */
   margin: rem(40) auto;
   width: rem(204);
@@ -449,7 +445,7 @@
 }
 
 // 送信ボタン重なり上のスタイル
-.form__submit.is-submit::before {
+.form__submit.-active::before {
   cursor: pointer;
   // 変数不可、ホバーすると現れる色を設定
   --color: #f7f4f2;// 変数不可
@@ -470,7 +466,7 @@
 }
 
 // ボタン本体（自作フォーム + CF7両対応）
-.form__submit.is-submit input {
+.form__submit.-active input {
   cursor: pointer;
   font-family: $english-family;
   font-size: rem(16);
@@ -483,22 +479,18 @@
   transition: color 1s;
 }
 
-.form__submit.is-submit input[type="submit"] {
-  cursor: pointer;
-}
-
 // 送信ボタンホバースタイル
-.form__submit.is-submit:hover::before {
+.form__submit.-active:hover::before {
   background-position: 0;
 }
 
 // input部分のホバースタイル
-.form__submit.is-submit:hover input {
+.form__submit.-active:hover input {
   color: $main;
 }
 
 // 矢印のスタイル
-.form__submit.is-submit{
+.form__submit.-active {
   .arrow-submit::before {
     content: '';
     position: absolute;
@@ -524,9 +516,18 @@
 }
 
 // 矢印のホバー時のスタイル
-.form__submit.is-submit:hover .arrow-submit::before,
-.form__submit.is-submit:hover .arrow-submit::after {
+.form__submit.-active:hover .arrow-submit::before,
+.form__submit.-active:hover .arrow-submit::after {
   background-color: $main;
+}
+
+// 送信不可時カーソルポインターを押下不可明示
+.form__submit input[type="submit"]:disabled {
+  cursor: not-allowed;
+}
+
+.form__submit.-active input[type="submit"] {
+  cursor: pointer;
 }
 
 // ===================================
@@ -544,8 +545,10 @@
   top: rem(-16);
   left: 0;
   color: $base;
-  // border-radius: 4px; // TODO: rem()を使う場合は関数化
-  background: $required-color; // TODO: $required-color 変数化推奨
+  // border-radius: 4px;
+  // TODO: rem()を使う場合は関数化
+  background: $required-color;
+  // TODO: $required-color 変数化推奨
   padding: rem(1) rem(9);
   font-family: $base-font-family;
   font-weight: $bold;
@@ -560,9 +563,9 @@
 // カラーバリエーション変数設定
 $form-focus-color: #c94800;
 $form-hover-color: #c94800;
-$form-focus-outline: 1px solid $form-focus-color;
-$form-hover-box-shadow: 0px 0px 0px 1px rgba(230, 91, 32, 0.7),
-                        0px 0px 3px 2px rgba(230, 91, 32, 0.2);
+$form-focus-outline: rem(1) solid $form-focus-color;
+$form-hover-box-shadow: 0 0 0 rem(1) rgba(230, 91, 32, 0.7),
+                        0 0 rem(3) rem(2) rgba(230, 91, 32, 0.2);
 
 // focus-visible（キーボード操作時）
 .form__row input:focus-visible,
@@ -604,14 +607,14 @@ a:focus-visible {
 // チェックボックス
 // -----------------------------------
 // focus / focus-visible
-.form__field--checkbox input[type='checkbox']:focus-visible + span::before,
-.form__field--checkbox input[type='checkbox']:focus + span::before {
+.form__field--checkbox input[type='checkbox']:focus-visible,
+.form__field--checkbox input[type='checkbox']:focus {
   outline: $form-focus-outline;
 }
 
 // hover
 @media(any-hover: hover) {
-  .form__field--checkbox input[type='checkbox']:hover + span::before {
+  .form__field--checkbox input[type='checkbox']:hover {
     box-shadow: $form-hover-box-shadow;
     transition: box-shadow 0.3s;
   }
@@ -621,15 +624,14 @@ a:focus-visible {
 // ラジオボタン
 // -----------------------------------
 // focus / focus-visible
-.form__field--radio input[type='radio']:focus-visible + span::before,
-.form__field--radio input[type='radio']:focus + span::before {
+.form__field--radio input[type='radio']:focus-visible,
+.form__field--radio input[type='radio']:focus {
   outline: $form-focus-outline;
-
 }
 
 // hover
 @media(any-hover: hover) {
-  .form__field--radio input[type='radio']:hover + span::before {
+  .form__field--radio input[type='radio']:hover {
     box-shadow: $form-hover-box-shadow;
     transition: box-shadow 0.3s;
   }
@@ -639,14 +641,14 @@ a:focus-visible {
 // プライバシーポリシーのチェックボックス
 // -----------------------------------
 // focus / focus-visible
-.form__field--privacy input[type='checkbox']:focus-visible + span::before,
-.form__field--privacy input[type='checkbox']:focus + span::before {
+.form__field--privacy input[type='checkbox']:focus-visible,
+.form__field--privacy input[type='checkbox']:focus {
   outline: $form-focus-outline;
 }
 
 // hover
 @media(any-hover: hover) {
-  .form__field--privacy input[type='checkbox']:hover + span::before {
+  .form__field--privacy input[type='checkbox']:hover {
     box-shadow: $form-hover-box-shadow;
     transition: box-shadow 0.3s;
   }
@@ -712,20 +714,20 @@ $focusError-outline: 1px solid $form-focusError-color;
 // チェックボックス：エラーカスタム
 // -----------------------------------
 // チェックの囲みのエラーバリエーション
-.form__field--checkbox .wpcf7-not-valid span::before {
+.form__field--checkbox .wpcf7-not-valid input[type='checkbox'] {
   border: rem(2) solid $form-focusError-color;
   background: $form-bgError-color;
 }
 
 // focus / focus-visible:エラーバリエーション
-.form__field--checkbox .wpcf7-not-valid input[type='checkbox']:focus-visible + span::before,
-.form__field--checkbox .wpcf7-not-valid input[type='checkbox']:focus + span::before {
+.form__field--checkbox .wpcf7-not-valid input[type='checkbox']:focus-visible,
+.form__field--checkbox .wpcf7-not-valid input[type='checkbox']:focus {
   outline: $focusError-outline;
 }
 
 // hover:エラーバリエーション
 @media(any-hover: hover) {
-  .form__field--checkbox .wpcf7-not-valid input[type='checkbox']:hover + span::before {
+  .form__field--checkbox .wpcf7-not-valid input[type='checkbox']:hover {
     box-shadow: none;
   }
 }
@@ -734,21 +736,21 @@ $focusError-outline: 1px solid $form-focusError-color;
 // ラジオボタン：エラーカスタム
 // -----------------------------------
 // 円い囲み部分のエラースタイル
-.form__field--radio .wpcf7-not-valid span::before {
+.form__field--radio .wpcf7-not-valid input[type='radio'] {
   border: rem(2) solid $form-focusError-color;
   background: $form-bgError-color;
 }
 
 // focus / focus-visible:エラースタイル
-.form__field--radio .wpcf7-not-valid input[type='radio']:focus-visible + span::before,
-.form__field--radio .wpcf7-not-valid input[type='radio']:focus + span::before {
+.form__field--radio .wpcf7-not-valid input[type='radio']:focus-visible,
+.form__field--radio .wpcf7-not-valid input[type='radio']:focus {
   // border: rem(2) solid $form-focusError-color;
   outline: $focusError-outline;
 }
 
 // hover:エラースタイル
 @media(any-hover: hover) {
-  .form__field--radio .wpcf7-not-valid input[type='radio']:hover + span::before {
+  .form__field--radio .wpcf7-not-valid input[type='radio']:hover {
     box-shadow: none;
   }
 }

@@ -20,7 +20,6 @@
 
 .opening__screen {
   background-color: $white;
-  // display: none;
 }
 
 .opening__image {
@@ -103,8 +102,7 @@
 .opening__logoWhite {
   display: block;
   width: clamp(rem(220), 28vw, rem(492)); // ← オレンジと統一
-  aspect-ratio: 281 / 106; // ← モバイル用の元画像比率
-  position: absolute;
+  aspect-ratio: 281 / 106;   position: absolute;
   top: 50%;
   left: 50%;
   translate: -50% -50%;

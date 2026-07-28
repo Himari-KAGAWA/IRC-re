@@ -4,7 +4,7 @@
 // Contacform7の調整
 // ===================================
 
-// チェックボックスを縦並びにするならコメントアウト
+// チェックボックスを縦並びにする（横並びならコメントアウト）
 .wpcf7-checkbox .wpcf7-list-item {
     display: block;
   }
@@ -15,7 +15,8 @@
   color: #c94800;
   font-family: "Zen Old Mincho", serif;
   font-size: rem(14);
-  // line-height: 20.27px;
+  // 縦並びの時の余白調節
+  // line-height: 1;
   padding: 0 0 0 0;
   margin: 0 auto;
   width: 100%;
@@ -23,48 +24,48 @@
 }
 
 // チェックボックス・ラジオボタン非表示
-.form__field--checkbox,
-.form__field--radio {
-  span.wpcf7-not-valid-tip::after,
-  span.wpcf7-list-item.last::after,
-  span.wpcf7-form-control-wrap::after,
-  span.wpcf7-form-control.wpcf7-radio::after,
-  span.wpcf7-list-item::after,
-  span.wpcf7-list-item.first::after,
-  span.wpcf7-not-valid-tip::before,
-  span.wpcf7-form-control-wrap::before,
-  span.wpcf7-form-control.wpcf7-radio::before,
-  span.wpcf7-list-item::before,
-  span.wpcf7-list-item.first::before {
-    clip: rect(0, 0, 0, 0);// デフォルトのチェックボックスを非表示
-  }
-}
+// .form__field--checkbox,
+// .form__field--radio {
+//   span.wpcf7-not-valid-tip::after,
+//   span.wpcf7-list-item.last::after,
+//   span.wpcf7-form-control-wrap::after,
+//   span.wpcf7-form-control.wpcf7-radio::after,
+//   span.wpcf7-list-item::after,
+//   span.wpcf7-list-item.first::after,
+//   span.wpcf7-not-valid-tip::before,
+//   span.wpcf7-form-control-wrap::before,
+//   span.wpcf7-form-control.wpcf7-radio::before,
+//   span.wpcf7-list-item::before,
+//   span.wpcf7-list-item.first::before {
+//     clip: rect(0, 0, 0, 0);// デフォルトのチェックボックスを非表示
+//   }
+// }
 
 // チェックボックス非表示
-.form__field--checkbox {
-  span.wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required::after,
-  span.wpcf7-not-valid-tip::before,
-  span.wpcf7-form-control-wrap::before,
-  span.wpcf7-form-control.wpcf7-radio::before,
-  span.wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required::before,
-  span.wpcf7-list-item::before,
-  span.wpcf7-list-item.first::before {
-    clip: rect(0, 0, 0, 0);// デフォルトのチェックボックスを非表示
-  }
-}
+// .form__field--checkbox {
+//   span.wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required::after,
+//   span.wpcf7-not-valid-tip::before,
+//   span.wpcf7-form-control-wrap::before,
+//   span.wpcf7-form-control.wpcf7-radio::before,
+//   span.wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required::before,
+//   span.wpcf7-list-item::before,
+//   span.wpcf7-list-item.first::before {
+//     clip: rect(0, 0, 0, 0);// デフォルトのチェックボックスを非表示
+//   }
+// }
 
 // プライバシーポリシーのチェックボックス非表示
-.form__field--privacy {
-  span.wpcf7-form-control.wpcf7-acceptance::after,
-  span.wpcf7-list-item::before,
-  span.wpcf7-list-item-label::before,
-  span.wpcf7-form-control-wrap::before,
-  span.wpcf7-form-control.wpcf7-acceptance::before {
-    // clip/opacity/display使用不可
-    border: none;
-    background: transparent;
-  }
-}
+// .form__field--privacy {
+//   span.wpcf7-form-control.wpcf7-acceptance::after,
+//   span.wpcf7-list-item::before,
+//   span.wpcf7-list-item-label::before,
+//   span.wpcf7-form-control-wrap::before,
+//   span.wpcf7-form-control.wpcf7-acceptance::before {
+//     // clip/opacity/display使用不可
+//     border: none;
+//     background: transparent;
+//   }
+// }
 
 // 送信ボタンのスピナー削除
 .wpcf7-spinner {

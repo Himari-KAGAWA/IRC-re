@@ -49,9 +49,14 @@
   text-align: center;
 }
 
+
 /*---------------------------------------
 【管理画面】ACF：カスタマイズ
 /*--------------------------------------*/
+/* タブの背景色変更 */
+.acf-fields>.acf-tab-wrap .acf-tab-group li.active a {
+  background: aqua !important;
+}
 
 /* フィールドラベルのフォントスタイル */
 .acf-fields .acf-field .acf-label label {
@@ -70,18 +75,12 @@
 }
 
 .acf-table > thead > tr > th {
-  background: #e8ece9;
+  background: paleturquoise;
 }
 
 /* プレイスホルダー */
 .acf-input input::placeholder {
-  color: #d4dcd3;
-}
-
-/* テーブルの枠 */
-.acf-table,
-.acf-table > tbody > tr > td {
-  border-style: none;
+  color: #e8ece9;
 }
 
 .acf-table > thead > tr > th {
@@ -89,23 +88,11 @@
   border-width: 0 0 0 2px;
 }
 
-/* キャンペーン：サンプル画像 */
-.post-type-campaign #acf-group_66a255f2562e7 .acf-fields.-top {
-  background: url(../images/common/sample/sample-campaign.png) no-repeat;
-  background-size: contain;
-  background-position: top right 8px;
-}
-
-/* お客様の声：サンプル画像 */
-.post-type-voice #acf-group_66a33f1b5fb4f .acf-fields.-top {
-  background: url(../images/common/sample/sample-voice.png) no-repeat;
-  background-size: contain;
-  background-position: top right 8px;
-}
 
 /*---------------------------------------
 【管理画面】SCF：カスタマイズ
 /*--------------------------------------*/
+/* 手順のテキストカラー */
 .smart-cf-meta-box-table td .instruction {
   color: #ea5532;
 }
@@ -115,25 +102,23 @@
   border: #d4dcd3 solid 2px;
 }
 
-.smart-cf-meta-box-repeat-tables table th {
-  width: 20%;
-  font-weight: bold;
-}
-
+/* 項目を増やす+ボタンの色変更 */
 .dashicons-plus-alt:before {
   color: #b2222b;
 }
 
+/* 項目を削除する×ボタンの色変更 */
+.dashicons-dismiss:before {
+  color: #0000cd;
+}
+
+/* 項目のタイトル */
 .dashicons-plus-alt::after {
   content: '追加';
   margin-left: 3px;
   color: #a9a9a9;
   font-size: 12px;
   vertical-align: top;
-}
-
-.dashicons-dismiss:before {
-  color: #0000cd;
 }
 
 .dashicons-dismiss::after {

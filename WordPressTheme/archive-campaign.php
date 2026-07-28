@@ -1,8 +1,7 @@
 <?php get_header(); ?>
 
 <main class="main">
-  <div class="main__lower-image js-in-view fade-in-up">
-  </div>></div>
+  <div class="main__lower-image js-in-view fade-in-up"></div>
   <!-- 下層ページメインビュー -->
   <section class="sub-mv sub-mv__bg sub-mv__bg--campaign js-in-view fade-in">
     <div class="sub-mv_inner">

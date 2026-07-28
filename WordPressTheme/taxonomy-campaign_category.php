@@ -22,6 +22,8 @@
       <div class="page__content page-campaign">
         <div class="page-campaign__nav category-list">
           <div class="category-list__tabs js-in-view fade-in">
+
+
             <ul class="category-list__items">
 
               <li class="category-list__item">
@@ -62,16 +64,27 @@
                     </div>
                     <div class="card-01__body card-01__body--page">
                       <div class="card-01__header card-01__header--page">
+
                         <div class="category">
                           <?php
-                          $categories = get_the_terms(get_the_ID(), 'campaign_category');
-                          if ($categories && !is_wp_error($categories)) {
-                            foreach ($categories as $category) {
-                              echo esc_html($category->name) . ' ';
+                          global $post;
+                          $post_id = $post->ID;
+
+                          $taxonomies = array('campaign_category', 'area', 'job_type', 'project_cat');
+
+                          foreach ($taxonomies as $taxonomy) {
+                            $terms = get_the_terms($post_id, $taxonomy);
+
+                            if (!empty($terms) && !is_wp_error($terms)) {
+                              foreach ($terms as $term) {
+                                echo '<span class="tag">' . esc_html($term->name) . '</span> ';
+                              }
                             }
                           }
                           ?>
                         </div>
+
+
                         <h3 class="card-01__title card-01__title--page">
                           <?php the_title(); ?>
                         </h3>
@@ -184,9 +197,9 @@
 
       <!-- pagination -->
       <div class="pagination top-pagination">
-            <?php wp_pagenavi(); ?>
-          </div>
-          <!-- /pagination -->
+        <?php wp_pagenavi(); ?>
+      </div>
+      <!-- /pagination -->
 
     </div>
   </div>
